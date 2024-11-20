@@ -1,10 +1,13 @@
 package minderaExercices.MonsterGame.MonsterGameBasic;
 
+import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
+import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.TypeMonsters;
+
 public class Random {
 
 	//change name for generateMonsterType
-	public static int randomMonsterType() {
-		return (int) (Math.random() * 10 + 1);
+	public static int randomMonsterTypeId() {
+		return  (int) (Math.random() * 3 + 1);
 	}
 
 	public static int randomBiteChange() {

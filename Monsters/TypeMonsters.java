@@ -12,16 +12,21 @@ public enum TypeMonsters {
 	}
 
 	public static Monster typeOfMonstersToCreate(int id){
-		switch (id){
-			case 1:{
-				return new Vampire();
-			}
-			case 2 : {
-				return new Mummy();
-			}
-			case 3 : {
-				return new Werewolf();
+		for(TypeMonsters type : TypeMonsters.values()){
+			if(type.id == id){
+				switch (type){
+					case VAMPIRE -> {
+						return new Vampire();
+					}
+					case MUMMY -> {
+						return new Mummy();
+					}
+					case WEREWOLF -> {
+						return new Werewolf();
+					}
+				}
 			}
 		}
+		return null;
 	}
 }
