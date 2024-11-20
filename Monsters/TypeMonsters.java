@@ -5,6 +5,7 @@ public enum TypeMonsters {
 	MUMMY(2),
 	WEREWOLF(3);
 
+	//todo implement health for each here also have a getter for this health
 	private int id;
 
 	private TypeMonsters(int id){

@@ -4,9 +4,18 @@ import minderaExercices.MonsterGame.MonsterGameBasic.Player;
 
 public abstract class Monster {
 	protected String name;
+
+	//todo a variable to manage currentHealth state will be pass trough type.getHealth from enums type
+
+	//todo here health would be based on monster type this means it can
 	protected int health;
+
 	protected int damage;
 	protected boolean isDead;
+
+	//todo create constructor that accepts the typemosnter
+	//todo in each subclass pass into super it own reference from typeMonster.VAMPIRE etc
+	//todo there will also be there a place to store type that must be tipagem of typemonster
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing
 	// so all will share id this means the current monster id will be last one set ++ this should be incremented in
