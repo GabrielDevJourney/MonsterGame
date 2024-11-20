@@ -7,7 +7,13 @@ public class Dealing {
 
 	public static void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense) {
 		attackerMonster.specialAbility();
+		if(Generator.generateDecisionToTakeDamage()){
+
+			//if true player damage else monster damage
+			defense.decreaseHealth(attackerMonster.getDamage());
+		}else{
 		defenseMonster.sufferHit(attackerMonster.getDamage(), defense);
+		}
 
 		//!terminal
 		GameConsole.printDamageInfo(attackerMonster.getDamage(),

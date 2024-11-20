@@ -47,8 +47,8 @@ public class Game {
 
 	private void playRound(Player player1, Player player2) {
 
-		Monster monsterPlayer1 = Generator.generateRandomRoundPick(player1);
-		Monster monsterPlayer2 = Generator.generateRandomRoundPick(player2);
+		Monster monsterPlayer1 = Generator.generateRoundPick(player1);
+		Monster monsterPlayer2 = Generator.generateRoundPick(player2);
 
 
 		if (roundTrackingCounter % 2 == 0) {

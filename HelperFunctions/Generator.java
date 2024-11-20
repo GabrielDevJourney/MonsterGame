@@ -9,7 +9,7 @@ import minderaExercices.MonsterGame.MonsterGameBasic.Random;
 
 public class Generator {
 	public static Monster generateRandomDealCard() {
-		int randomNumberToDealCard = Random.generateMonsterType();
+		int randomNumberToDealCard = Random.randomMonsterType();
 
 		if (randomNumberToDealCard <= 2) {
 			return new Werewolf();
@@ -18,8 +18,8 @@ public class Generator {
 		return new Vampire();
 	}
 
-	public static Monster generateRandomRoundPick(Player player) {
-		int randomIndex = Random.generateIndex(player);
+	public static Monster generateRoundPick(Player player) {
+		int randomIndex = Random.randomIndex(player);
 
 		if (player.getCardsAlive() == null) {
 			player.updateAliveCards();
@@ -28,5 +28,10 @@ public class Generator {
 		Monster[] currentPlayerCards = player.getCardsAlive();
 		return currentPlayerCards[randomIndex];
 
+	}
+
+	public static boolean generateDecisionToTakeDamage(){
+		//40% change for player to take damage
+		return Random.randomDecision() <= 4;
 	}
 }
