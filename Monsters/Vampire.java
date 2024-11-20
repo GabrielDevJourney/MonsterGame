@@ -5,10 +5,7 @@ import minderaExercices.MonsterGame.MonsterGameBasic.Random;
 public class Vampire extends Monster {
 
 	public Vampire() {
-		super();
-		health = 100;
-		damage = 18;
-		name = "Vampire";
+		super(TypeMonsters.VAMPIRE);
 	}
 
 	@Override
@@ -21,9 +18,9 @@ public class Vampire extends Monster {
 		int changeOfBite = Random.randomBiteChange();
 
 		//25% change of biting, also checking if health is near 85 ensure that health doesn't go above is max health
-		if (changeOfBite <= 25 && health <= 85) {
+		if (changeOfBite <= 25 && currentHealth <= 85) {
 			int healthBack = 15;
-			health += healthBack;
+			currentHealth += healthBack;
 		}
 	}
 

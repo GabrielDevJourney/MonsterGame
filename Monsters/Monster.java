@@ -3,19 +3,18 @@ package minderaExercices.MonsterGame.MonsterGameBasic.Monsters;
 import minderaExercices.MonsterGame.MonsterGameBasic.Player;
 
 public abstract class Monster {
-	protected String name;
-
-	//todo a variable to manage currentHealth state will be pass trough type.getHealth from enums type
-
-	//todo here health would be based on monster type this means it can
-	protected int health;
-
-	protected int damage;
+	protected final String name;
+	protected int currentHealth;
+	protected TypeMonsters type;
+	protected final int damage;
 	protected boolean isDead;
 
-	//todo create constructor that accepts the typemosnter
-	//todo in each subclass pass into super it own reference from typeMonster.VAMPIRE etc
-	//todo there will also be there a place to store type that must be tipagem of typemonster
+	public Monster(TypeMonsters type){
+		this.type = type;
+		this.currentHealth = type.getCurrentHealth();
+		this.damage = type.getDamage();
+		this.name = type.getName();
+	}
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing
 	// so all will share id this means the current monster id will be last one set ++ this should be incremented in
@@ -23,13 +22,12 @@ public abstract class Monster {
 
 	//*GETTERS AND SETTERS
 
-
-	public int getHealth() {
-		return health;
-	}
-
 	public String getName() {
 		return name;
+	}
+
+	public int getCurrentHealth() {
+		return currentHealth;
 	}
 
 	public int getDamage() {
@@ -43,10 +41,10 @@ public abstract class Monster {
 	//check for zero health this means mosnter is dead
 	public void setHealth(int healthAfterHit) {
 		if (healthAfterHit < 0) {
-			this.health = 0;
+			currentHealth = 0;
 			isDead = true;
 		} else {
-			this.health = healthAfterHit;
+			currentHealth = healthAfterHit;
 		}
 	}
 
@@ -56,7 +54,7 @@ public abstract class Monster {
 
 	//using This is referring to the monster that already called method on itself
 	public void sufferHit(int damageOfHit, Player currentPlayer) {
-		int healthAfterHit = this.getHealth() - damageOfHit;
+		int healthAfterHit = currentHealth - damageOfHit;
 		this.setHealth(healthAfterHit);
 		if (this.isDead) {
 			currentPlayer.decreaseCardsAlive();

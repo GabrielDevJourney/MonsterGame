@@ -57,7 +57,7 @@ public class Game {
 			//!terminal info
 			GameConsole.printRoundInfo(roundTrackingCounter, player1.getName(), player2.getName(),
 					monsterPlayer1.getName(), monsterPlayer2.getName(),
-					monsterPlayer1.getHealth(), monsterPlayer2.getHealth());
+					monsterPlayer1.getCurrentHealth(), monsterPlayer2.getCurrentHealth());
 
 			handleTurn(player2, monsterPlayer1, monsterPlayer2);
 		} else {
@@ -65,7 +65,7 @@ public class Game {
 			//!terminal info
 			GameConsole.printRoundInfo(roundTrackingCounter, player2.getName(), player1.getName(),
 					monsterPlayer2.getName(), monsterPlayer1.getName(),
-					monsterPlayer2.getHealth(), monsterPlayer1.getHealth());
+					monsterPlayer2.getCurrentHealth(), monsterPlayer1.getCurrentHealth());
 
 
 			handleTurn(player1, monsterPlayer2, monsterPlayer1);

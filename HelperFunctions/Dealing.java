@@ -17,7 +17,7 @@ public class Dealing {
 
 		//!terminal
 		GameConsole.printDamageInfo(attackerMonster.getDamage(),
-				defenseMonster.getName(), defenseMonster.getHealth());
+				defenseMonster.getName(), defenseMonster.getCurrentHealth());
 	}
 
 	public static void dealCards(Player player) {
