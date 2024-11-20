@@ -6,3 +6,4 @@ public class Main {
 		gameTest.start();
 	}
 }
+//todo see how to implenent gitignore for the out

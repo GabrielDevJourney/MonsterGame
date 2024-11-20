@@ -1,5 +1,7 @@
 package minderaExercices.MonsterGame.MonsterGameBasic.Monsters;
 
+import minderaExercices.MonsterGame.MonsterGameBasic.Random;
+
 public enum TypeMonsters {
 	VAMPIRE(1,100,18, "Vampire"),
 	MUMMY(2,120,15, "Mummy"),
@@ -31,26 +33,5 @@ public enum TypeMonsters {
 
 	public int getDamage() {
 		return damage;
-	}
-
-	public static Monster typeOfMonstersToCreate(int id){
-		for(TypeMonsters type : TypeMonsters.values()){
-			if(id == type.getId()){
-				switch (type){
-					case VAMPIRE -> {
-						return new Vampire();
-					}
-					case MUMMY -> {
-						return new Mummy();
-					}
-					case WEREWOLF -> {
-						return new Werewolf();
-					}
-				}
-			}
-		}
-		//instead of null i can do this type of built in error that will be fast to
-		//let me know to see if everything is working nice and smooth
-		throw new IllegalArgumentException("Invalid monster id " + id);
 	}
 }

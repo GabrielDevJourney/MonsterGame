@@ -1,16 +1,16 @@
 package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
 
+import minderaExercices.MonsterGame.MonsterGameBasic.MonsterFactory;
 import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
 import minderaExercices.MonsterGame.MonsterGameBasic.Player;
 import minderaExercices.MonsterGame.MonsterGameBasic.Random;
 
 public class Generator {
-	public static Monster generateRandomDealCard() {
-		return TypeMonsters.typeOfMonstersToCreate(Random.randomMonsterTypeId());
-	}
 
-	public static Monster generateRoundPick(Player player) {
-		int randomIndex = Random.randomIndex(player);
+	private final Random random = new Random();
+
+	public Monster generateRoundPick(Player player) {
+		int randomIndex = random.randomIndex(player);
 
 		if (player.getCardsAlive() == null) {
 			player.updateAliveCards();
@@ -21,8 +21,9 @@ public class Generator {
 
 	}
 
-	public static boolean generateDecisionToTakeDamage(){
+	public boolean generateDecisionToTakeDamage(){
 		//40% change for player to take damage
-		return Random.randomDecision() <= 4;
+		return random.randomDecision() <= 4;
 	}
+
 }

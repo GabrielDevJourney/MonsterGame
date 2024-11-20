@@ -1,13 +1,21 @@
 package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
 
+import minderaExercices.MonsterGame.MonsterGameBasic.MonsterFactory;
 import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
 import minderaExercices.MonsterGame.MonsterGameBasic.Player;
 
 public class Dealing {
 
-	public static void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense) {
+	//this will now follow oop principles because this type of factory patterns shouldnt be static
+	 private final MonsterFactory factory;
+
+	public Dealing(MonsterFactory factory) {
+		this.factory = factory;
+	}
+
+	public void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense,boolean randomDecision) {
 		attackerMonster.specialAbility();
-		if(Generator.generateDecisionToTakeDamage()){
+		if(randomDecision){
 
 			//if true player damage else monster damage
 			defense.decreaseHealth(attackerMonster.getDamage());
@@ -20,11 +28,11 @@ public class Dealing {
 				defenseMonster.getName(), defenseMonster.getCurrentHealth());
 	}
 
-	public static void dealCards(Player player) {
+	public void dealCards(Player player, int randomIndex) {
 		Monster[] currentPlayerHand = player.getPlayerCards();
 		for (int i = 0; i < currentPlayerHand.length; i++) {
 			if (currentPlayerHand[i] == null) {
-				currentPlayerHand[i] = Generator.generateRandomDealCard();
+				currentPlayerHand[i] = factory.createRandomMonster(randomIndex);
 			}
 		}
 	}

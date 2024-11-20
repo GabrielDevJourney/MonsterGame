@@ -5,10 +5,17 @@ import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.GameConsole
 import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.Generator;
 import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
 
+import javax.management.relation.RelationNotification;
+import java.security.CodeSigner;
+
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
 	private final Player[] players = new Player[2];
 	private int roundTrackingCounter = 0;
+	private final MonsterFactory factory = new MonsterFactory();
+	private final Dealing dealing = new Dealing(factory);
+	private final Generator generator = new Generator();
+	private final Random random = new Random();
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
@@ -20,7 +27,7 @@ public class Game {
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			Dealing.dealCards(player);
+			dealing.dealCards(player, random.randomTypeMonstersIndex());
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
@@ -47,8 +54,8 @@ public class Game {
 
 	private void playRound(Player player1, Player player2) {
 
-		Monster monsterPlayer1 = Generator.generateRoundPick(player1);
-		Monster monsterPlayer2 = Generator.generateRoundPick(player2);
+		Monster monsterPlayer1 = generator.generateRoundPick(player1);
+		Monster monsterPlayer2 = generator.generateRoundPick(player2);
 
 
 		if (roundTrackingCounter % 2 == 0) {
@@ -77,7 +84,7 @@ public class Game {
 	//no need for attacker player itself be passed since I am passing his selected monster and that is where i will
 	// grab damage to deal from
 	private void handleTurn(Player defense, Monster attackerMonster, Monster defenseMonster) {
-		Dealing.dealDamage(attackerMonster, defenseMonster, defense);
+		dealing.dealDamage(attackerMonster, defenseMonster, defense,generator.generateDecisionToTakeDamage());
 		if (defense.hasNoCards()) {
 			defense.setHasLost(true);
 
