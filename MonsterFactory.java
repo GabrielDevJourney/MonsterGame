@@ -5,11 +5,13 @@ import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
 
 public class MonsterFactory {
 
+	private final Random random = new Random();
+
 	//!this type must generated random
 	private Monster monsterCreator(TypeMonsters type) {
 		switch (type) {
 			case VAMPIRE -> {
-				return new Vampire();
+				return new Vampire(random);
 			}
 			case MUMMY -> {
 				return new Mummy();
