@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MonsterGame_new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MonsterGame_new.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelperFunctions/Dealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/Dealing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelperFunctions/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/GameConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelperFunctions/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monsters/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Mummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monsters/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Werewolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Random.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/Dealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/Dealing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/GameConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/HelperFunctions/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/MonsterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Mummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/TypeMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/TypeMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Vampire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters/Werewolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/minderaExercices/MonsterGame/MonsterGameBasic/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Random.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/advance-version" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,10 +64,10 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/advance-version",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/mindera/Documents/mindera/MonsterGame_new",
-    "last_opened_file_path": "/Users/mindera/Documents/mindera/MonsterGame_new",
+    "last_opened_file_path": "/Users/mindera/Documents/mindera/MonsterGame_new/minderaExercices/MonsterGame/MonsterGameBasic/Monsters",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.14351426",

@@ -1,14 +1,18 @@
-package game;
+package gameAdvance;
 
-import game.HelperFunctions.Dealing;
-import game.HelperFunctions.GameConsole;
-import game.HelperFunctions.Generator;
-import game.Monsters.Monster;
+import gameAdvance.HelperFunctions.Dealing;
+import gameAdvance.HelperFunctions.GameConsole;
+import gameAdvance.HelperFunctions.Generator;
+import gameAdvance.Monsters.Monster;
 
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
 	private final Player[] players = new Player[2];
 	private int roundTrackingCounter = 0;
+	private final MonsterFactory factory = new MonsterFactory();
+	private final Dealing dealing = new Dealing(factory);
+	private final Generator generator = new Generator();
+	private final Random random = new Random();
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
@@ -20,7 +24,7 @@ public class Game {
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			Dealing.dealCards(player);
+			dealing.dealCards(player, random.randomTypeMonstersIndex());
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
@@ -47,8 +51,8 @@ public class Game {
 
 	private void playRound(Player player1, Player player2) {
 
-		Monster monsterPlayer1 = Generator.generateRandomRoundPick(player1);
-		Monster monsterPlayer2 = Generator.generateRandomRoundPick(player2);
+		Monster monsterPlayer1 = generator.generateRoundPick(player1);
+		Monster monsterPlayer2 = generator.generateRoundPick(player2);
 
 
 		if (roundTrackingCounter % 2 == 0) {
@@ -57,7 +61,7 @@ public class Game {
 			//!terminal info
 			GameConsole.printRoundInfo(roundTrackingCounter, player1.getName(), player2.getName(),
 					monsterPlayer1.getName(), monsterPlayer2.getName(),
-					monsterPlayer1.getHealth(), monsterPlayer2.getHealth());
+					monsterPlayer1.getCurrentHealth(), monsterPlayer2.getCurrentHealth());
 
 			handleTurn(player2, monsterPlayer1, monsterPlayer2);
 		} else {
@@ -65,7 +69,7 @@ public class Game {
 			//!terminal info
 			GameConsole.printRoundInfo(roundTrackingCounter, player2.getName(), player1.getName(),
 					monsterPlayer2.getName(), monsterPlayer1.getName(),
-					monsterPlayer2.getHealth(), monsterPlayer1.getHealth());
+					monsterPlayer2.getCurrentHealth(), monsterPlayer1.getCurrentHealth());
 
 
 			handleTurn(player1, monsterPlayer2, monsterPlayer1);
@@ -77,7 +81,7 @@ public class Game {
 	//no need for attacker player itself be passed since I am passing his selected monster and that is where i will
 	// grab damage to deal from
 	private void handleTurn(Player defense, Monster attackerMonster, Monster defenseMonster) {
-		Dealing.dealDamage(attackerMonster, defenseMonster, defense);
+		dealing.dealDamage(attackerMonster, defenseMonster, defense,generator.generateDecisionToTakeDamage());
 		if (defense.hasNoCards()) {
 			defense.setHasLost(true);
 

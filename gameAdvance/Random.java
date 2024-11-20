@@ -1,7 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic;
+package gameAdvance;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.TypeMonsters;
+import gameAdvance.Monsters.TypeMonsters;
 
 public class Random {
 

@@ -1,6 +1,4 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.Monsters;
-
-import minderaExercices.MonsterGame.MonsterGameBasic.Random;
+package gameAdvance.Monsters;
 
 public enum TypeMonsters {
 	VAMPIRE(1,100,18, "Vampire"),

@@ -1,6 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic;
+package gameAdvance;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.Generator;
+import gameAdvance.Monsters.*;
 import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
 
 public class MonsterFactory {

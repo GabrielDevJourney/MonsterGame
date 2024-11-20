@@ -1,9 +1,9 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
+package gameAdvance.HelperFunctions;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.MonsterFactory;
+import gameAdvance.Monsters.Monster;
 import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
-import minderaExercices.MonsterGame.MonsterGameBasic.Player;
-import minderaExercices.MonsterGame.MonsterGameBasic.Random;
+import gameAdvance.Player;
+import gameAdvance.Random;
 
 public class Generator {
 

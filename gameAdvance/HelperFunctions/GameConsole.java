@@ -1,6 +1,4 @@
-package game.HelperFunctions;
-
-//todo print player vida cada round
+package gameAdvance.HelperFunctions;
 
 public class GameConsole {
 	public static void printRoundInfo(int round, String attackerName, String defenseName,

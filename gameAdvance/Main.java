@@ -1,4 +1,4 @@
-package game;
+package gameAdvance;
 
 public class Main {
 	public static void main(String[] args) {

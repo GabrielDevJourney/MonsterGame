@@ -1,4 +1,4 @@
-package game.Monsters;
+package gameAdvance.Monsters;
 
 public class Mummy extends Monster {
 
@@ -6,10 +6,7 @@ public class Mummy extends Monster {
 	private int repeatedAttacks = 0;
 
 	public Mummy() {
-		super();
-		health = 120;
-		damage = 15;
-		name = "Mummy";
+		super(TypeMonsters.MUMMY);
 	}
 
 	@Override
@@ -37,6 +34,6 @@ public class Mummy extends Monster {
 
 	public void penaltyDamage() {
 		int penaltyDamage = 10;
-		health -= penaltyDamage;
+		currentHealth -= penaltyDamage;
 	}
 }

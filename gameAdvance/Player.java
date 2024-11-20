@@ -1,6 +1,6 @@
-package game;
+package gameAdvance;
 
-import game.Monsters.Monster;
+import gameAdvance.Monsters.Monster;
 
 public class Player {
 
@@ -9,6 +9,7 @@ public class Player {
 	private int numberOfCardsAlive = numberOfInitialCards;
 	private final String name;
 	private boolean hasLost = false;
+	private int health = 100;
 	private final Monster[] playerCards = new Monster[numberOfInitialCards];
 
 	//this will allow me to not have null index so only alive will be passed and array will always have the needed size
@@ -66,5 +67,9 @@ public class Player {
 				aliveIndexCounter++;
 			}
 		}
+	}
+
+	public void decreaseHealth(int damage){
+		health -= damage;
 	}
 }

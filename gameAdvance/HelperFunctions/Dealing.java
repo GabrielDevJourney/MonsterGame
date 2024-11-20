@@ -1,8 +1,8 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
+package gameAdvance.HelperFunctions;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.MonsterFactory;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
-import minderaExercices.MonsterGame.MonsterGameBasic.Player;
+import gameAdvance.MonsterFactory;
+import gameAdvance.Monsters.Monster;
+import gameAdvance.Player;
 
 public class Dealing {
 

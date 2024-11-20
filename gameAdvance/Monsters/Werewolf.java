@@ -1,4 +1,4 @@
-package game.Monsters;
+package gameAdvance.Monsters;
 
 public class Werewolf extends Monster {
 
@@ -8,10 +8,7 @@ public class Werewolf extends Monster {
 	}
 
 	public Werewolf() {
-		super();
-		health = 140;
-		damage = 20;
-		name = "Werewolf";
+		super(TypeMonsters.WEREWOLF);
 	}
 
 }
