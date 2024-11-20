@@ -1,6 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.Monsters;
+package game.Monsters;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.Random;
+import game.Random;
 
 public class Vampire extends Monster {
 

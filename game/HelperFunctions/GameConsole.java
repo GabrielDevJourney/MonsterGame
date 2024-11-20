@@ -1,4 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
+package game.HelperFunctions;
+
+//todo print player vida cada round
 
 public class GameConsole {
 	public static void printRoundInfo(int round, String attackerName, String defenseName,

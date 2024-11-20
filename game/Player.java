@@ -1,6 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic;
+package game;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
+import game.Monsters.Monster;
 
 public class Player {
 

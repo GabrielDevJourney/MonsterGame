@@ -1,6 +1,6 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.Monsters;
+package game.Monsters;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.Player;
+import game.Player;
 
 public abstract class Monster {
 	protected String name;

@@ -1,4 +1,4 @@
-package minderaExercices.MonsterGame.MonsterGameBasic;
+package game;
 
 public class Random {
 

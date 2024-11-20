@@ -1,11 +1,11 @@
-package minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions;
+package game.HelperFunctions;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Mummy;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Vampire;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Werewolf;
-import minderaExercices.MonsterGame.MonsterGameBasic.Player;
-import minderaExercices.MonsterGame.MonsterGameBasic.Random;
+import game.Monsters.Monster;
+import game.Monsters.Mummy;
+import game.Monsters.Vampire;
+import game.Monsters.Werewolf;
+import game.Player;
+import game.Random;
 
 public class Generator {
 	public static Monster generateRandomDealCard() {

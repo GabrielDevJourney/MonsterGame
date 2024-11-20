@@ -1,9 +1,9 @@
-package minderaExercices.MonsterGame.MonsterGameBasic;
+package game;
 
-import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.Dealing;
-import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.GameConsole;
-import minderaExercices.MonsterGame.MonsterGameBasic.HelperFunctions.Generator;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.Monster;
+import game.HelperFunctions.Dealing;
+import game.HelperFunctions.GameConsole;
+import game.HelperFunctions.Generator;
+import game.Monsters.Monster;
 
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
