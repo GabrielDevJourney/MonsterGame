@@ -8,12 +8,14 @@ public abstract class Monster {
 	protected TypeMonsters type;
 	protected final int damage;
 	protected boolean isDead;
+	protected int id = 0;
 
 	public Monster(TypeMonsters type){
 		this.type = type;
 		this.currentHealth = type.getCurrentHealth();
 		this.damage = type.getDamage();
 		this.name = type.getName();
+		this.id = id++;
 	}
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing
@@ -32,6 +34,10 @@ public abstract class Monster {
 
 	public int getDamage() {
 		return damage;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public boolean isDead() {
@@ -61,4 +67,5 @@ public abstract class Monster {
 			currentPlayer.updateAliveCards();
 		}
 	}
+
 }

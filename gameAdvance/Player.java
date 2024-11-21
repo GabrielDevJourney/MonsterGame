@@ -79,4 +79,11 @@ public class Player {
 		health -= damage;
 		}
 	}
+
+	public void showAliveMonsters(){
+		for(Monster monsterAlive : cardsAlive){
+			System.out.println(monsterAlive.getId() + monsterAlive.getName() + " has" + monsterAlive.getCurrentHealth() +
+					" HP");
+		}
+	}
 }

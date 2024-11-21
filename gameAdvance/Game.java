@@ -13,6 +13,7 @@ public class Game {
 	private final Random random = new Random();
 	private final MonsterFactory factory = new MonsterFactory(random);
 	private final Dealing dealing = new Dealing(factory);
+	private final GameScannerManager gameScanner = new GameScannerManager(this);
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
@@ -98,6 +99,16 @@ public class Game {
 		} else {
 			GameConsole.announceWinner(player1.getName(), player2.getName());
 		}
+	}
+
+	public Monster getPlayerMonsterChoice(Player player, int userChoice){
+		Monster[] currentAliveCards = player.getCardsAlive();
+		for(Monster currentMonster : currentAliveCards){
+			if(userChoice == currentMonster.getId() ){
+				return currentMonster;
+			}
+		}
+		throw new IllegalArgumentException("That monster isn't available");
 	}
 
 }
