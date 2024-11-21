@@ -1,5 +1,6 @@
-package gameAdvance.Monsters;
+package gameAdvance.HelperClasses.Monsters;
 
+import gameAdvance.HelperClasses.Enums.TypeMonsters;
 import gameAdvance.Player;
 
 public abstract class Monster {

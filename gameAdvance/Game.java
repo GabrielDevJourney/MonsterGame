@@ -1,9 +1,9 @@
 package gameAdvance;
 
-import gameAdvance.HelperFunctions.Dealing;
-import gameAdvance.HelperFunctions.GameConsole;
-import gameAdvance.HelperFunctions.Generator;
-import gameAdvance.Monsters.Monster;
+import gameAdvance.HelperClasses.*;
+import gameAdvance.HelperClasses.Monsters.Monster;
+import gameAdvance.HelperClasses.Monsters.MonsterFactory;
+import gameAdvance.HelperClasses.Scanner.GameScannerManager;
 
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it

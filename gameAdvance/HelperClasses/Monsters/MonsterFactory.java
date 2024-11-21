@@ -1,6 +1,7 @@
-package gameAdvance;
+package gameAdvance.HelperClasses.Monsters;
 
-import gameAdvance.Monsters.*;
+import gameAdvance.HelperClasses.Enums.TypeMonsters;
+import gameAdvance.HelperClasses.Random;
 
 public class MonsterFactory {
 

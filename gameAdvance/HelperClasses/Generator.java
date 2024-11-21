@@ -1,8 +1,7 @@
-package gameAdvance.HelperFunctions;
+package gameAdvance.HelperClasses;
 
-import gameAdvance.Monsters.Monster;
+import gameAdvance.HelperClasses.Monsters.Monster;
 import gameAdvance.Player;
-import gameAdvance.Random;
 
 public class Generator {
 

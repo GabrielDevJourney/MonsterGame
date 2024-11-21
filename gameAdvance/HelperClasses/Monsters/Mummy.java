@@ -1,4 +1,6 @@
-package gameAdvance.Monsters;
+package gameAdvance.HelperClasses.Monsters;
+
+import gameAdvance.HelperClasses.Enums.TypeMonsters;
 
 public class Mummy extends Monster {
 

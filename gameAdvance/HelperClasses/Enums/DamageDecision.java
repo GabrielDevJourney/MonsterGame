@@ -1,11 +1,11 @@
-package gameAdvance;
+package gameAdvance.HelperClasses.Enums;
 
 public enum DamageDecision {
 	YES(1, "Yes"),
 	NO(2, "No");
 
-	private int id;
-	private String description;
+	private final int id;
+	private final String description;
 
 	DamageDecision(int id, String description) {
 		this.id = id;
@@ -20,10 +20,11 @@ public enum DamageDecision {
 		return description;
 	}
 
-	public static DamageDecision damageDecision(int damageDecision) {
+	public static boolean damageDecision(int damageDecision) {
 		for (DamageDecision decision : DamageDecision.values()) {
 			if (decision.getId() == damageDecision) {
-				return decision;
+
+				return damageDecision == 1;
 			}
 		}
 

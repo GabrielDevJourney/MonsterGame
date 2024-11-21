@@ -1,9 +1,9 @@
-package gameAdvance.HelperFunctions;
+package gameAdvance.HelperClasses;
 
-import gameAdvance.MonsterFactory;
-import gameAdvance.Monsters.Monster;
+import gameAdvance.HelperClasses.Monsters.MonsterFactory;
+import gameAdvance.HelperClasses.Monsters.Monster;
 import gameAdvance.Player;
-import gameAdvance.Random;
+import gameAdvance.HelperClasses.Random;
 
 public class Dealing {
 

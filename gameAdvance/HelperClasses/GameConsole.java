@@ -1,4 +1,4 @@
-package gameAdvance.HelperFunctions;
+package gameAdvance.HelperClasses;
 
 public class GameConsole {
 	public static void printRoundInfo(int round, String attackerName, String defenseName,

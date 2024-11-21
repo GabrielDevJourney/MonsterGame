@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gameAdvance/DamageDecision.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameAdvance/GameScannerManager.java" afterDir="false" />
+    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="implemented all logic for handling input with scanner from mode options, monster choice and if player wants to take damage or not now need to implement all of it within game">
+      <change afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/DamageDecision.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/DamageDecision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/GameMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/GameMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/GameScannerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Scanner/GameScannerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Dealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Dealing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperFunctions/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/GameConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/MonsterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Mummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/TypeMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/TypeMonsters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Vampire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Werewolf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Random.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +66,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/advance-version&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/mindera/Documents/mindera/MonsterGame_new&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mindera/Documents/mindera/MonsterGame_new/minderaExercices/MonsterGame/MonsterGameBasic/Monsters&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.14351426&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/advance-version",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/mindera/Documents/mindera/MonsterGame_new",
+    "last_opened_file_path": "/Users/mindera/Documents/mindera/MonsterGame_new/gameAdvance/HelperClasses",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.14351426",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameAdvance/HelperClasses" />
       <recent name="$PROJECT_DIR$/minderaExercices/MonsterGame/MonsterGameBasic/Monsters" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -88,6 +99,15 @@
       <option name="presentableId" value="Default" />
       <updated>1732031132348</updated>
     </task>
+    <task id="LOCAL-00001" summary="implemented all logic for handling input with scanner from mode options, monster choice and if player wants to take damage or not now need to implement all of it within game">
+      <option name="closed" value="true" />
+      <created>1732195137487</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732195137487</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,5 +120,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implemented all logic for handling input with scanner from mode options, monster choice and if player wants to take damage or not now need to implement all of it within game" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented all logic for handling input with scanner from mode options, monster choice and if player wants to take damage or not now need to implement all of it within game" />
   </component>
 </project>

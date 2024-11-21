@@ -1,7 +1,10 @@
-package gameAdvance;
+package gameAdvance.HelperClasses.Scanner;
 
-import gameAdvance.Monsters.Monster;
-import gameAdvance.Monsters.TypeMonsters;
+import gameAdvance.Game;
+import gameAdvance.HelperClasses.Enums.DamageDecision;
+import gameAdvance.HelperClasses.Enums.GameMode;
+import gameAdvance.HelperClasses.Monsters.Monster;
+import gameAdvance.Player;
 
 import java.util.Scanner;
 
@@ -34,7 +37,7 @@ public class GameScannerManager {
 
 	}
 
-	public DamageDecision handleDamageDecision() {
+	public boolean handleDamageDecision() {
 		int userChoice = 0;
 
 		do {
