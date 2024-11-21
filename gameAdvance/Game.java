@@ -52,6 +52,7 @@ public class Game {
 
 	private void playRound(Player player1, Player player2) {
 
+		//todo for scanner to be implmented this must go way into a bot vs bot method since they will auto play
 		Monster monsterPlayer1 = generator.generateRoundPick(player1);
 		Monster monsterPlayer2 = generator.generateRoundPick(player2);
 
@@ -65,6 +66,7 @@ public class Game {
 					monsterPlayer1.getCurrentHealth(), monsterPlayer2.getCurrentHealth());
 
 			handleTurn(player2, monsterPlayer1, monsterPlayer2);
+
 		} else {
 
 			//!terminal info
@@ -74,6 +76,7 @@ public class Game {
 
 
 			handleTurn(player1, monsterPlayer2, monsterPlayer1);
+
 		}
 
 	}
