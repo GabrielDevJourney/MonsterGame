@@ -7,21 +7,9 @@
     <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Dealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperFunctions/Dealing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/MonsterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Dealing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/GameConsole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Generator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Monster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Mummy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Vampire.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Werewolf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Random.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

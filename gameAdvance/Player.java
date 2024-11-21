@@ -17,7 +17,6 @@ public class Player {
 	private Monster[] cardsAlive;
 
 
-
 	public Player(String name) {
 		this.name = name;
 	}
@@ -38,6 +37,10 @@ public class Player {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getHealth() {
+		return health;
 	}
 
 	public boolean isHasLost() {
@@ -70,6 +73,10 @@ public class Player {
 	}
 
 	public void decreaseHealth(int damage){
+		if(health <= 0){
+			hasLost = true;
+		}else{
 		health -= damage;
+		}
 	}
 }

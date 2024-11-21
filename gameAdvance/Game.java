@@ -24,7 +24,7 @@ public class Game {
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			dealing.dealCards(player, random.randomTypeMonstersIndex());
+			dealing.dealCards(player, random);
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
@@ -39,7 +39,8 @@ public class Game {
 		Player player2 = players[1];
 
 		//keep playing while neither has lost all cards so have a variable for both
-		while (!player1.hasNoCards() && !player2.hasNoCards()) {
+		//&& cuz need oly one to stop game
+		while (!player1.hasNoCards() && !player2.hasNoCards() && !player1.isHasLost() && !player2.isHasLost()) {
 
 			playRound(player1, player2);
 			roundTrackingCounter++;
