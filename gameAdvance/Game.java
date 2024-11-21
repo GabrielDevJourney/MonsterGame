@@ -9,10 +9,10 @@ public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
 	private final Player[] players = new Player[2];
 	private int roundTrackingCounter = 0;
-	private final MonsterFactory factory = new MonsterFactory();
-	private final Dealing dealing = new Dealing(factory);
 	private final Generator generator = new Generator();
 	private final Random random = new Random();
+	private final MonsterFactory factory = new MonsterFactory(random);
+	private final Dealing dealing = new Dealing(factory);
 
 	public Game() {
 		this.players[0] = new Player("Player 1");

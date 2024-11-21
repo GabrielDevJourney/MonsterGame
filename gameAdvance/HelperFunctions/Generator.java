@@ -1,7 +1,6 @@
 package gameAdvance.HelperFunctions;
 
 import gameAdvance.Monsters.Monster;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
 import gameAdvance.Player;
 import gameAdvance.Random;
 

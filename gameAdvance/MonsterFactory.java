@@ -1,17 +1,19 @@
 package gameAdvance;
 
 import gameAdvance.Monsters.*;
-import minderaExercices.MonsterGame.MonsterGameBasic.Monsters.*;
 
 public class MonsterFactory {
 
-	private final Random random = new Random();
+	private final Random random;
 
-	//!this type must generated random
+	public MonsterFactory(Random random) {
+		this.random = random;
+	}
+
 	private Monster monsterCreator(TypeMonsters type) {
 		switch (type) {
 			case VAMPIRE -> {
-				return new Vampire(random);
+				return new Vampire(random.randomBiteChange());
 			}
 			case MUMMY -> {
 				return new Mummy();
