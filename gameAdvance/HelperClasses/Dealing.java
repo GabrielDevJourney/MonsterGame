@@ -3,7 +3,6 @@ package gameAdvance.HelperClasses;
 import gameAdvance.HelperClasses.Monsters.MonsterFactory;
 import gameAdvance.HelperClasses.Monsters.Monster;
 import gameAdvance.Player;
-import gameAdvance.HelperClasses.Random;
 
 public class Dealing {
 

@@ -11,23 +11,35 @@ public class TurnHandler {
 	// so,if player vs player call damageDecison and show monster to player 2 and what he will be using to take hit
 	// if his damage decison is no
 	public void handlePlayerTurn(Player attacker, Player defense,
-	                             GameScannerManager gameScanner,
-	                             boolean damageDecision, Dealing dealing) {
-		//player will need to see monsters options
-		//attacker choose monster
+	                             GameScannerManager gameScanner, Dealing dealing) {
+
 		Monster attackerMonsterChoice = gameScanner.handleMonsterChoice(attacker);
 
-		//player2 choose take damage or not
-		//no which monster show options and get his option
-		//yes just decrease damage
+		boolean damageDecision = gameScanner.handleDamageDecision();
+
 		if (damageDecision) {
-			defense.decreaseHealth(attackerMonsterChoice.getDamage());
+			dealing.dealDamage(attackerMonsterChoice, null, defense, true);
 		} else {
 			Monster defenseMonsterChoice = gameScanner.handleMonsterChoice(defense);
-		dealing.dealDamage(attackerMonsterChoice,defenseMonsterChoice,defense);
+			dealing.dealDamage(attackerMonsterChoice, defenseMonsterChoice, defense, false);
+		}
+	}
+
+	public void handleBotTurn(Player attacker, Player defense,Monster defenseMonster,Dealing dealing,
+	                          Generator generator, int roundTrackingCounter){
+		//generate monster
+		//and simply atack defense monster
+		Monster attackerMonsterChoice = generator.generateRoundPick(attacker);
+		boolean damageDecision = generator.generateDecisionToTakeDamage();
+
+		if(damageDecision){
+			dealing.dealDamage(attackerMonsterChoice,null,defense,true);
+		}else{
+			dealing.dealDamage(attackerMonsterChoice,defenseMonster,defense, false);
 		}
 
-		//handle dealdamage
-
+		GameConsole.printRoundInfo(roundTrackingCounter, attacker.getName(), defense.getName(),
+				attackerMonsterChoice.getName(), defenseMonster.getName(),
+				attackerMonsterChoice.getCurrentHealth(), defenseMonster.getCurrentHealth());
 	}
 }

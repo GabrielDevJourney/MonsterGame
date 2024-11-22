@@ -20,15 +20,18 @@ public enum DamageDecision {
 		return description;
 	}
 
-	public static boolean damageDecision(int damageDecision) {
+	public static String getDamageDecision(int damageDecision) {
 		for (DamageDecision decision : DamageDecision.values()) {
 			if (decision.getId() == damageDecision) {
-
-				return damageDecision == 1;
+				return decision.getDescription();
 			}
 		}
 
 		throw new IllegalArgumentException("This choice doesn't exist");
+	}
+
+	public static boolean finalDamageDecision(String decision){
+		return decision.equals("Yes");
 	}
 
 	public static void displayDecisionOptions() {
@@ -37,5 +40,7 @@ public enum DamageDecision {
 			System.out.println(decision.getId() + " " + decision.getDescription());
 		}
 	}
+
+
 
 }

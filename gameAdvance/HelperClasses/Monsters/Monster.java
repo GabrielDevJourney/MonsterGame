@@ -9,14 +9,15 @@ public abstract class Monster {
 	protected TypeMonsters type;
 	protected final int damage;
 	protected boolean isDead;
-	protected int id = 0;
+	protected final int id;
+	protected static int idCounter = 0;
 
 	public Monster(TypeMonsters type){
 		this.type = type;
 		this.currentHealth = type.getCurrentHealth();
 		this.damage = type.getDamage();
 		this.name = type.getName();
-		this.id = id++;
+		this.id = idCounter;
 	}
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing

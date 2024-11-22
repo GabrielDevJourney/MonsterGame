@@ -34,8 +34,8 @@ public enum GameMode {
 	}
 
 	public static void displayModeOptions() {
+		System.out.println("Choose a game mode");
 		for (GameMode mode : GameMode.values()) {
-			System.out.println("Choose a game mode");
 			System.out.println(mode.getId() + " " + mode.getDescription());
 		}
 	}
