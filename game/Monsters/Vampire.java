@@ -1,6 +1,6 @@
 package game.Monsters;
 
-import game.Random;
+import game.HelperFunctions.Random;
 
 public class Vampire extends Monster {
 
@@ -18,7 +18,7 @@ public class Vampire extends Monster {
 
 	//to utilize in game I must return if vampire will bite or not so the action will occur in game
 	public void bite() {
-		int changeOfBite = Random.generateBiteChange();
+		int changeOfBite = Random.generateRandomNumber(100);
 
 		//25% change of biting, also checking if health is near 85 ensure that health doesn't go above is max health
 		if (changeOfBite <= 25 && health <= 85) {

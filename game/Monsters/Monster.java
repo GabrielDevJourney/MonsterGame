@@ -1,11 +1,10 @@
 package game.Monsters;
 
-import game.Player;
+import game.Strikeable;
+import game.Supernatural;
 
-public abstract class Monster {
-	protected String name;
+public abstract class Monster extends Supernatural implements Strikeable {
 	protected int health;
-	protected int damage;
 	protected boolean isDead;
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing
@@ -19,39 +18,37 @@ public abstract class Monster {
 		return health;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public int getDamage() {
-		return damage;
-	}
-
 	public boolean isDead() {
 		return isDead;
 	}
 
 	//check for zero health this means mosnter is dead
-	public void setHealth(int healthAfterHit) {
-		if (healthAfterHit < 0) {
-			this.health = 0;
+	public void updateCurrentHealth(int damageOfHit) {
+		if (health - damageOfHit <= 0) {
+			health = 0;
 			isDead = true;
 		} else {
-			this.health = healthAfterHit;
+			health -= damageOfHit;
 		}
 	}
+
 
 	//*METHODS
 
 	public abstract void specialAbility();
 
 	//using This is referring to the monster that already called method on itself
-	public void sufferHit(int damageOfHit, Player currentPlayer) {
-		int healthAfterHit = this.getHealth() - damageOfHit;
-		this.setHealth(healthAfterHit);
-		if (this.isDead) {
-			currentPlayer.decreaseCardsAlive();
-			currentPlayer.updateAliveCards();
-		}
+
+
+	@Override
+	public void sufferHit(int damage) {
+		//change this to here so attack handles everything by calling proper methods
+		this.updateCurrentHealth(damage);
+	}
+
+	public void attack(Monster defenseMonster) {
+		this.specialAbility();
+		defenseMonster.sufferHit(this.getDamage());
+
 	}
 }

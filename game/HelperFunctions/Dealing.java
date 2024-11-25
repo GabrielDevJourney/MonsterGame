@@ -6,8 +6,8 @@ import game.Player;
 public class Dealing {
 
 	public static void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense) {
-		attackerMonster.specialAbility();
-		defenseMonster.sufferHit(attackerMonster.getDamage(), defense);
+
+		attackerMonster.attack(defenseMonster);
 
 		//!terminal
 		GameConsole.printDamageInfo(attackerMonster.getDamage(),
