@@ -5,31 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/game/Enums/ObstaculeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Enums/TypeMonsters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Obstacule/Fairy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Obstacule/Whitch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Strikeable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Supernatural.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/HelperFunctions/Dealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/Dealing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/HelperFunctions/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/GameConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/HelperFunctions/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/HelperFunctions/Random.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Dealing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Dealing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/GameConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/GameConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Generator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/HelperFunctions/Generator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Vampire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Monsters/Vampire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Random.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
