@@ -7,5 +7,3 @@ public class Main {
 	}
 }
 
-//todo see how to separate getPlayerMonsterChoice from game and gameScanner
-//todo this means i need to pass info from method to method

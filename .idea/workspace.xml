@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="impelemented most of player vs bot logic and currenly improving prints to see game flow to understand if everything is working smothly">
+    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="delete dependency between game and gamesacnner where gamescanner need gae method to return monster, i delegate this to turn handler so no dependency anynmore now turn hadler can simply get user choice from scanner and since already has the player object can also check in its array of alive mosnters what the choice correspond to">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Main.java" afterDir="false" />
@@ -55,21 +56,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/advance-version&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/mindera/Documents/mindera/MonsterGame_new&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mindera/Documents/mindera/MonsterGame_new/gameAdvance/HelperClasses&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.14351426&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/advance-version",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/mindera/Documents/mindera/MonsterGame_new",
+    "last_opened_file_path": "/Users/mindera/Documents/mindera/MonsterGame_new/gameAdvance/HelperClasses",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.14351426",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gameAdvance/HelperClasses" />
@@ -112,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732609379967</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="delete dependency between game and gamesacnner where gamescanner need gae method to return monster, i delegate this to turn handler so no dependency anynmore now turn hadler can simply get user choice from scanner and since already has the player object can also check in its array of alive mosnters what the choice correspond to">
+      <option name="closed" value="true" />
+      <created>1732628763537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732628763537</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,9 +136,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="implemented all logic for handling input with scanner from mode options, monster choice and if player wants to take damage or not now need to implement all of it within game" />
     <MESSAGE value="implemented basic input handling now just need to finish the handle turn logic for if is user playing or bot" />
     <MESSAGE value="impelemented most of player vs bot logic and currenly improving prints to see game flow to understand if everything is working smothly" />
-    <option name="LAST_COMMIT_MESSAGE" value="impelemented most of player vs bot logic and currenly improving prints to see game flow to understand if everything is working smothly" />
+    <MESSAGE value="delete dependency between game and gamesacnner where gamescanner need gae method to return monster, i delegate this to turn handler so no dependency anynmore now turn hadler can simply get user choice from scanner and since already has the player object can also check in its array of alive mosnters what the choice correspond to" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete dependency between game and gamesacnner where gamescanner need gae method to return monster, i delegate this to turn handler so no dependency anynmore now turn hadler can simply get user choice from scanner and since already has the player object can also check in its array of alive mosnters what the choice correspond to" />
   </component>
 </project>

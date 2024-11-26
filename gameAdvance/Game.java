@@ -76,6 +76,9 @@ public class Game {
 			case PLAYER_VS_BOT -> {
 				handleGamePlayerVsBot(player1, player2);
 			}
+			case PLAYER_VS_PLAYER -> {
+				handleGamePlayerVsPlayer(player1,player2);
+			}
 		}
 
 		GameConsole.printRoundEnd();
@@ -121,23 +124,35 @@ public class Game {
 			player1.setAttacking(true);
 			player2.setAttacking(false);
 
-			turnHandler.handleBotTurnVsPlayer(player1,player2);
+			turnHandler.handleBotVsPlayerTurn(player1,player2);
 
 		}else{
 			player1.setAttacking(false);
 			player2.setAttacking(true);
 
-			turnHandler.handleBotTurnVsPlayer(player1,player2);
+			turnHandler.handleBotVsPlayerTurn(player1,player2);
 		}
 	}
 
-/*	private void handlePlayerVsPlayer(Player player1, Player player2){
-		if % 2 == 0){
-			turnHandler.handlePlayerTurn(player1,player2,gameScanner,dealing);
+	private void handleGamePlayerVsPlayer(Player attacker, Player defense){
+
+		attacker.setName("USER_Gabriel");
+		defense.setName("USER_Test");
+
+		if(roundTrackingCounter % 2 == 0){
+
+			attacker.setAttacking(true);
+			defense.setAttacking(false);
+
+			turnHandler.handlePlayerVsPlayerTurn(attacker,defense);
+
 		}else{
-			turnHandler.handlePlayerTurn(player2,player1,gameScanner,dealing);
+			attacker.setAttacking(false);
+			defense.setAttacking(true);
+
+			turnHandler.handlePlayerVsPlayerTurn(defense,attacker);
 		}
-	}*/
+	}
 
 	private void endGame(Player player1, Player player2) {
 		if (player1.isHasLost()) {

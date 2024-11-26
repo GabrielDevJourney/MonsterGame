@@ -37,12 +37,12 @@ public class GameScannerManager {
 
 	}
 
-	public static String handleDamageDecision() {
+	public static String handleDamageDecision(String currentPlayerName) {
 		int userChoice = 0;
 
 		do {
 
-			System.out.println("Do you want to take damage yourself?");
+			System.out.println(currentPlayerName + " do you want to take damage yourself?");
 			DamageDecision.displayDecisionOptions();
 
 			if (gameScanner.hasNextInt()) {
@@ -65,7 +65,7 @@ public class GameScannerManager {
 		int userChoice = 0;
 		do {
 
-			System.out.println("Choose your monster for this round!");
+			System.out.println(player.getName() + " choose your monster for this round!");
 			player.showAliveMonsters();
 
 			if (gameScanner.hasNextInt()) {
