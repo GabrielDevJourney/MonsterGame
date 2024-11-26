@@ -13,7 +13,6 @@ public abstract class Monster extends Supernatural implements Strikeable {
 
 	//*GETTERS AND SETTERS
 
-
 	public int getHealth() {
 		return health;
 	}
@@ -22,7 +21,10 @@ public abstract class Monster extends Supernatural implements Strikeable {
 		return isDead;
 	}
 
+	//*METHODS
+
 	//check for zero health this means mosnter is dead
+	//?should it be a setter??
 	public void updateCurrentHealth(int damageOfHit) {
 		if (health - damageOfHit <= 0) {
 			health = 0;
@@ -33,11 +35,7 @@ public abstract class Monster extends Supernatural implements Strikeable {
 	}
 
 
-	//*METHODS
-
 	public abstract void specialAbility();
-
-	//using This is referring to the monster that already called method on itself
 
 
 	@Override

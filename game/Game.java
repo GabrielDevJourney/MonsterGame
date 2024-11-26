@@ -1,6 +1,5 @@
 package game;
 
-import game.HelperFunctions.Dealing;
 import game.HelperFunctions.GameConsole;
 import game.HelperFunctions.Generator;
 import game.Monsters.Monster;
@@ -26,7 +25,7 @@ public class Game {
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			Dealing.dealCards(player);
+			dealCards(player);
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
@@ -55,28 +54,12 @@ public class Game {
 		Monster monsterPlayer1 = Generator.generateRandomRoundPick(player1);
 		Monster monsterPlayer2 = Generator.generateRandomRoundPick(player2);
 
-		if (monsterPlayer1 == null || monsterPlayer2 == null) {
-
-			player1.updateAliveCards();
-			player2.updateAliveCards();
-
-			if (player1.hasNoCards()) {
-				player1.setHasLost(true);
-			}
-			if (player2.hasNoCards()) {
-				player2.setHasLost(true);
-			}
-
-			return;
-
-		}
-
 
 		roundTrackingCounter++;
-		Supernatural gameObstacule = Generator.generateRandomObstacule();
+		Supernatural obstacleForThisRound = Generator.generateRandomObstacule();
 
-		if (gameObstacule != null) {
-			handleTurnWithObstacule(gameObstacule, player1, player2, monsterPlayer1, monsterPlayer2);
+		if (obstacleForThisRound != null) {
+			handleTurnWithObstacule(obstacleForThisRound, player1, player2, monsterPlayer1, monsterPlayer2);
 		} else {
 			if (roundTrackingCounter % 2 == 0) {
 
@@ -102,10 +85,9 @@ public class Game {
 		}
 	}
 
-
 	private void handleTurn(Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster) {
 
-	Dealing.dealDamage(attackerMonster, defenseMonster, defense);
+	dealDamage(attackerMonster, defenseMonster);
 
 	//need to handle possibility of mummy being the attacker and dying from penalty damage
 	defense.updatePlayerCardsState(defenseMonster);
@@ -130,5 +112,25 @@ public class Game {
 		GameConsole.announceWinner(player1.getName(), player2.getName());
 	}
 }
+
+	//*DEAL DAMAGE
+	private void dealDamage(Monster attackerMonster, Monster defenseMonster) {
+
+		attackerMonster.attack(defenseMonster);
+
+		//!terminal
+		GameConsole.printDamageInfo(attackerMonster.getDamage(),
+				defenseMonster.getName(), defenseMonster.getHealth());
+	}
+
+	//*DEAL CARDS
+	private void dealCards(Player player) {
+		Monster[] currentPlayerHand = player.getPlayerCards();
+		for (int i = 0; i < currentPlayerHand.length; i++) {
+			if (currentPlayerHand[i] == null) {
+				currentPlayerHand[i] = Generator.generateRandomDealCard();
+			}
+		}
+	}
 
 }
