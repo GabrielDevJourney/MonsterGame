@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/HelperFunctions/Dealing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Strikeable.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/Strikeable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonsterGame_new/game/Player.class" afterDir="false" />
-    </list>
+    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
