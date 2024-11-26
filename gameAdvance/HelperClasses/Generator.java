@@ -1,6 +1,6 @@
 package gameAdvance.HelperClasses;
 
-import gameAdvance.HelperClasses.Monsters.Monster;
+import gameAdvance.Monsters.Monster;
 import gameAdvance.Player;
 
 public class Generator {

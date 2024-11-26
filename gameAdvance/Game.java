@@ -1,15 +1,17 @@
 package gameAdvance;
 
 import gameAdvance.HelperClasses.*;
-import gameAdvance.HelperClasses.Enums.GameMode;
-import gameAdvance.HelperClasses.Monsters.Monster;
-import gameAdvance.HelperClasses.Monsters.MonsterFactory;
-import gameAdvance.HelperClasses.Scanner.GameScannerManager;
+import gameAdvance.Enums.GameMode;
+import gameAdvance.Monsters.Monster;
+import gameAdvance.Monsters.MonsterFactory;
+import gameAdvance.Scanner.GameScannerManager;
 
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
 	private final Player[] players = new Player[2];
 	private int roundTrackingCounter = 0;
+	private final TurnHandler turnHandler = new TurnHandler();
+	private GameMode mode;
 
 
 	public Game() {
@@ -18,23 +20,47 @@ public class Game {
 		initializePlayersHands();
 	}
 
+	public static Monster getPlayerMonsterChoice(Player player, int userChoice) {
+		Monster[] currentAliveCards = player.getCardsAlive();
+		for (Monster currentMonster : currentAliveCards) {
+			if (userChoice == currentMonster.getId()) {
+				return currentMonster;
+			}
+		}
+		throw new IllegalArgumentException("That monster isn't available");
+	}
+
+
 	//*METHODS
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			Dealing.dealCards(player);
+			dealCards(player);
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
 	}
 
-	public void start() {
-		GameMode mode = GameScannerManager.handleGameModeOptions();
-		GameConsole.printGameStart(mode);
-		playGame(mode);
+	//*DEAL CARDS
+	private void dealCards(Player player) {
+		Monster[] currentPlayerHand = player.getPlayerCards();
+		for (int i = 0; i < currentPlayerHand.length; i++) {
+			//choose a rancom enum type each time
+			int randomIndex = Random.randomTypeMonstersIndex();
+			if (currentPlayerHand[i] == null) {
+				currentPlayerHand[i] = MonsterFactory.createRandomMonster(randomIndex);
+			}
+		}
 	}
 
-	private void playGame(GameMode mode) {
+
+	public void start() {
+		mode = GameScannerManager.handleGameModeOptions();
+		GameConsole.printGameStart(mode.getDescription());
+		playGame();
+	}
+
+	private void playGame() {
 		Player player1 = players[0];
 		Player player2 = players[1];
 
@@ -42,7 +68,7 @@ public class Game {
 		//&& cuz need oly one to stop game
 		while (!player1.hasNoCards() && !player2.hasNoCards() && !player1.isHasLost() && !player2.isHasLost()) {
 
-			playRound(player1, player2,mode);
+			playRound(player1, player2);
 			roundTrackingCounter++;
 		}
 
@@ -50,7 +76,7 @@ public class Game {
 
 	}
 
-	private void playRound(Player player1, Player player2, GameMode mode) {
+	private void playRound(Player player1, Player player2) {
 
 		GameConsole.printRoundStart(roundTrackingCounter);
 
@@ -76,14 +102,20 @@ public class Game {
 	// grab damage to deal from
 	private void handleGameBotVsBot(Player player1,Player player2) {
 		if (roundTrackingCounter % 2 == 0) {
+
 			Monster attackerMonster = Generator.generateRoundPick(player1);
-			TurnHandler.handleBotTurnBotVsBot(player1,player2,attackerMonster,roundTrackingCounter);
+
+			turnHandler.handleBotTurnBotVsBot(player1,player2,attackerMonster,roundTrackingCounter);
+
 			if(player2.hasNoCards()){
 				player2.setHasLost(true);
 			}
 		}else{
+
 			Monster attackerMonster = Generator.generateRoundPick(player2);
-			TurnHandler.handleBotTurnBotVsBot(player2,player1,attackerMonster,roundTrackingCounter);
+
+			turnHandler.handleBotTurnBotVsBot(player2,player1,attackerMonster,roundTrackingCounter);
+
 			if(player1.hasNoCards()){
 				player1.setHasLost(true);
 			}
@@ -91,18 +123,22 @@ public class Game {
 	}
 
 	private void handleGamePlayerVsBot(Player player1, Player player2){
+
+		player1.setName("USER");
+		player2.setName("BOT");
+
 		if(roundTrackingCounter % 2 == 0){
 
 			player1.setAttacking(true);
 			player2.setAttacking(false);
 
-			TurnHandler.handleBotTurnVsPlayer(player1,player2);
+			turnHandler.handleBotTurnVsPlayer(player1,player2);
 
 		}else{
 			player1.setAttacking(false);
 			player2.setAttacking(true);
 
-			TurnHandler.handleBotTurnVsPlayer(player1,player2);
+			turnHandler.handleBotTurnVsPlayer(player1,player2);
 		}
 	}
 
@@ -121,15 +157,4 @@ public class Game {
 			GameConsole.announceWinner(player1.getName(), player2.getName());
 		}
 	}
-
-	public static Monster getPlayerMonsterChoice(Player player, int userChoice) {
-		Monster[] currentAliveCards = player.getCardsAlive();
-		for (Monster currentMonster : currentAliveCards) {
-			if (userChoice == currentMonster.getId()) {
-				return currentMonster;
-			}
-		}
-		throw new IllegalArgumentException("That monster isn't available");
-	}
-
 }

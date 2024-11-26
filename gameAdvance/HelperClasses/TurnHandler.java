@@ -1,19 +1,14 @@
 package gameAdvance.HelperClasses;
 
-import gameAdvance.Game;
-import gameAdvance.HelperClasses.Enums.DamageDecision;
-import gameAdvance.HelperClasses.Enums.GameMode;
-import gameAdvance.HelperClasses.Monsters.Monster;
-import gameAdvance.HelperClasses.Scanner.GameScannerManager;
+import gameAdvance.Enums.DamageDecision;
+import gameAdvance.Monsters.Monster;
+import gameAdvance.Scanner.GameScannerManager;
 import gameAdvance.Player;
 
 public class TurnHandler {
 
-	//need to handle different mode flows since i will need to "pause" pvp to get player 2 decision
-	//todo this needs to now what mode is being played to either generate a choice or get a choice from playerDefense
-	// so,if player vs player call damageDecison and show monster to player 2 and what he will be using to take hit
-	// if his damage decison is no
-	public static void handlePlayerTurn(Player attacker, Player defense, Monster attackerMonsterChoice) {
+
+	public void handlePlayerTurn(Player attacker, Player defense, Monster attackerMonsterChoice) {
 
 
 		//todo if is attacking just get the monster choice else get monster choice, and damage decision so i need to
@@ -21,14 +16,14 @@ public class TurnHandler {
 		String damageDecision = GameScannerManager.handleDamageDecision();
 
 		if (damageDecision.equals("Yes")) {
-			Dealing.dealDamage(attackerMonsterChoice, null, defense, true);
+			dealDamage(attackerMonsterChoice, null, defense, true);
 		} else {
 			Monster defenseMonsterChoice = GameScannerManager.handleMonsterChoice(defense);
-			Dealing.dealDamage(attackerMonsterChoice, defenseMonsterChoice, defense, false);
+			dealDamage(attackerMonsterChoice, defenseMonsterChoice, defense, false);
 		}
 	}
 
-	public static void handleBotTurnBotVsBot(Player attacker, Player defense,Monster attackerMonsterChoice,
+	public void handleBotTurnBotVsBot(Player attacker, Player defense,Monster attackerMonsterChoice,
 	                                  int roundTrackingCounter){
 
 
@@ -41,46 +36,73 @@ public class TurnHandler {
 				attackerMonsterChoice.getCurrentHealth(), defenseMonsterChoice.getCurrentHealth());
 
 		if(damageDecision){
-			Dealing.dealDamage(attackerMonsterChoice,null,defense,true);
+			dealDamage(attackerMonsterChoice,null,defense,true);
 		}else{
-			Dealing.dealDamage(attackerMonsterChoice,defenseMonsterChoice,defense, false);
+			dealDamage(attackerMonsterChoice,defenseMonsterChoice,defense, false);
 		}
 
 	}
 
-	public static void handleBotTurnVsPlayer(Player player1, Player player2){
+	public void handleBotTurnVsPlayer(Player player1, Player player2){
 
 		if(player1.isAttacking()){
 			Monster botMonster = Generator.generateRoundPick(player2);
 			Monster player1Monster = GameScannerManager.handleMonsterChoice(player1);
 
-			GameConsole.printPlayerVsBotRoundInfo(player1, player1Monster, player2, botMonster);
+			GameConsole.printPlayerVsBotRoundInfo(player1.getName(), player1Monster.getName(), player2.getName(),
+					botMonster.getName(), player1Monster.getCurrentHealth(), botMonster.getCurrentHealth());
 
 			boolean damageDecisionBot = Generator.generateDecisionToTakeDamage();
 
 			if(damageDecisionBot){
 				//decision and health of hit print inside dealvdamage
-				Dealing.dealDamage(player1Monster, null, player2, true);
+				dealDamage(player1Monster, null, player2, true);
 			}else{
-				Dealing.dealDamage(player1Monster, botMonster,player2, false);
+				dealDamage(player1Monster, botMonster,player2, false);
 			}
 
 		}else{
 
 			Monster botMonster = Generator.generateRoundPick(player2);
-			GameConsole.printBotMonsterSelection(player2.getName(),botMonster);
+			GameConsole.printBotMonsterSelection(player2.getName(), botMonster.getName(),
+					botMonster.getCurrentHealth());
 
 			Monster player1Monster = GameScannerManager.handleMonsterChoice(player1);
-			GameConsole.printPlayerMonsterSelection(player1.getName(),player1Monster);
+			GameConsole.printPlayerMonsterSelection(player1.getName(),player1Monster.getName(), player1Monster.getCurrentHealth());
 
 			boolean player1Decision = DamageDecision.finalDamageDecision(GameScannerManager.handleDamageDecision());
-			GameConsole.printPlayerDecisionInfo(player1.getName(), player1Decision, player1Monster);
 
 			if(player1Decision){
-				Dealing.dealDamage(botMonster, null, player1, true);
+				dealDamage(botMonster, null, player1, true);
 			}else{
-				Dealing.dealDamage(botMonster, player1Monster, player1, false);
+				dealDamage(botMonster, player1Monster, player1, false);
 			}
+
+		}
+
+	}
+
+	//*DEAL DAMAGE LOGIC
+	private void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense, boolean randomDecision) {
+
+		if (randomDecision) {
+			int healthBeforeHit = defense.getHealth();
+
+			//if true player take damage else take monster damage
+			defense.decreaseHealth(attackerMonster.getDamage());
+
+			GameConsole.displayPlayerHealthWhenHit(defense.getName(), healthBeforeHit);
+
+		} else {
+
+			System.out.println(defense.getName() + " choose to let monster take the hit");
+
+			attackerMonster.specialAbility();
+			defenseMonster.sufferHit(attackerMonster.getDamage(), defense);
+
+			//!terminal
+			GameConsole.printDamageInfo(attackerMonster.getDamage(),
+					defenseMonster.getName(), defenseMonster.getCurrentHealth());
 
 		}
 

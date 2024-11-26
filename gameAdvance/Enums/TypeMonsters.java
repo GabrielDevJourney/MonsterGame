@@ -1,4 +1,4 @@
-package gameAdvance.HelperClasses.Enums;
+package gameAdvance.Enums;
 
 public enum TypeMonsters {
 	VAMPIRE(1,100,18, "Vampire"),

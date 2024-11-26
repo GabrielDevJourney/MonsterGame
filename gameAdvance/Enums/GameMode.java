@@ -1,4 +1,4 @@
-package gameAdvance.HelperClasses.Enums;
+package gameAdvance.Enums;
 
 public enum GameMode {
 	BOT_VS_BOT(1, "Bot vs Bot"),

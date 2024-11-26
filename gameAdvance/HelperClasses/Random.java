@@ -1,6 +1,6 @@
 package gameAdvance.HelperClasses;
 
-import gameAdvance.HelperClasses.Enums.TypeMonsters;
+import gameAdvance.Enums.TypeMonsters;
 import gameAdvance.Player;
 
 public class Random {

@@ -1,6 +1,6 @@
-package gameAdvance.HelperClasses.Monsters;
+package gameAdvance.Monsters;
 
-import gameAdvance.HelperClasses.Enums.TypeMonsters;
+import gameAdvance.Enums.TypeMonsters;
 
 public class Vampire extends Monster {
 

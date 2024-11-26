@@ -1,9 +1,5 @@
 package gameAdvance.HelperClasses;
 
-import gameAdvance.HelperClasses.Enums.GameMode;
-import gameAdvance.HelperClasses.Monsters.Monster;
-import gameAdvance.Player;
-
 public class GameConsole {
 	public static void printRoundInfo(int round, String attackerName, String defenseName,
 	                                  String attackerMonsterName, String defenseMonsterName,
@@ -26,60 +22,38 @@ public class GameConsole {
 		System.out.println(winnerName + " wins! " + loserName + " has lost!");
 	}
 
-	public static void displayPlayerHealthWhenHit(Player defense, int healthBeforeHit){
-		System.out.println(defense.getName() + " choose to take hit himself health before " + healthBeforeHit +
-				" after hit now has HP : " + defense.getHealth());
+
+	public static void displayPlayerHealthWhenHit(String defenseName, int healthBeforeHit){
+		System.out.println(defenseName + "choose to take hit, health after hit HP : " + healthBeforeHit);
 	}
 
-	//player vs bot
-	//player attacking
-		//round display
-		//plyaer1 is attacking plyaer 2 defending
-		//!player 1 choose
-		//display bot monster and damage decision
-		//health dislay of based on if bot has take damage or mosnter did
-	//bot attacking
-		//round
-		//bot monster
-		//player choose monster then display
-		//then plauer choose to take or hit or no based on that display either player monsters helth or plyaer health
+	public static void printPlayerVsBotRoundInfo(String attackerName, String attackerMonsterName,
+	                                             String defenseName, String defenseMonsterName,int attackMonsterHealth,
+	                                             int defenseMonsterHealth) {
 
-	public static void printPlayerVsBotRoundInfo(Player attacker, Monster attackerMonster,
-	                                             Player defense, Monster defenseMonster) {
-		System.out.println(attacker.getName() + " is attacking with " + attackerMonster.getName() +
-				" (HP: " + attackerMonster.getCurrentHealth() + ")");
-		System.out.println(defense.getName() + " defends with " + defenseMonster.getName() +
-				" (HP: " + defenseMonster.getCurrentHealth() + ")");
+		System.out.println(attackerName + " is attacking with " + attackerMonsterName +
+				" (HP: " + attackMonsterHealth + ")");
+		System.out.println(defenseName + " defends with " + defenseMonsterName +
+				" (HP: " + defenseMonsterHealth + ")");
 	}
 
-	public static void printBotMonsterSelection(String botName, Monster selectedMonster) {
-		System.out.println(botName + " selected " + selectedMonster.getName() +
-				" (HP: " + selectedMonster.getCurrentHealth() + ")");
+
+	public static void printBotMonsterSelection(String botName, String botMonsterName, int botMonsterHealth) {
+		System.out.println(botName + " selected " +botMonsterName +
+				" (HP: " + botMonsterHealth + ")");
 	}
 
-	public static void printPlayerMonsterSelection(String playerName, Monster selectedMonster) {
-		System.out.println(playerName + " selected " + selectedMonster.getName() +
-				" (HP: " + selectedMonster.getCurrentHealth() + ")");
+
+
+	public static void printPlayerMonsterSelection(String playerName, String playerMonsterName,
+	                                               int playerMonsterHealth) {
+		System.out.println(playerName + " selected " + playerMonsterName+
+				" (HP: " + playerMonsterHealth + ")");
 	}
 
-	public static void printPlayerDecisionInfo(String playerName, boolean tookDamage, Monster playerMonster) {
-		if (tookDamage) {
-			System.out.println(playerName + " chose to take damage directly");
-		} else {
-			System.out.println(playerName + " chose to defend with " + playerMonster.getName() +
-					" (HP: " + playerMonster.getCurrentHealth() + ")");
-		}
-	}
-
-	public static void printTurnResult(String attackerName, String defenseName,
-	                                   String defenderType, int damageDealt, int remainingHealth) {
-		System.out.println(attackerName + " dealt " + damageDealt + " damage to " + defenseName + "'s " +
-				defenderType + ". Remaining HP: " + remainingHealth);
-	}
-
-	public static void printGameStart(GameMode mode) {
+	public static void printGameStart(String modeDescription) {
 		System.out.println("\n=========================");
-		System.out.println("Game Starting - Mode: " + mode.getDescription());
+		System.out.println("Game Starting - Mode: " + modeDescription);
 		System.out.println("=========================\n");
 	}
 

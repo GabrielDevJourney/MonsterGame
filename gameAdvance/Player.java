@@ -1,13 +1,13 @@
 package gameAdvance;
 
-import gameAdvance.HelperClasses.Monsters.Monster;
+import gameAdvance.Monsters.Monster;
 
 public class Player {
 
 	//final variables since i will not change tits value
 	private static final int numberOfInitialCards = 4;
 	private int numberOfCardsAlive = numberOfInitialCards;
-	private final String name;
+	private  String name;
 	private boolean hasLost = false;
 	private int health = 100;
 	private boolean isAttacking;
@@ -58,6 +58,10 @@ public class Player {
 
 	public void setAttacking(boolean attacking) {
 		isAttacking = attacking;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void decreaseCardsAlive() {
