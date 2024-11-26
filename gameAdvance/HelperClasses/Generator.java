@@ -5,10 +5,9 @@ import gameAdvance.Player;
 
 public class Generator {
 
-	private final Random random = new Random();
 
-	public Monster generateRoundPick(Player player) {
-		int randomIndex = random.randomIndex(player);
+	public static Monster generateRoundPick(Player player) {
+		int randomIndex = Random.randomIndex(player);
 
 		if (player.getCardsAlive() == null) {
 			player.updateAliveCards();
@@ -19,9 +18,9 @@ public class Generator {
 
 	}
 
-	public boolean generateDecisionToTakeDamage(){
+	public static boolean generateDecisionToTakeDamage(){
 		//40% change for player to take damage
-		return random.randomDecision() <= 4;
+		return Random.randomDecision() <= 4;
 	}
 
 }

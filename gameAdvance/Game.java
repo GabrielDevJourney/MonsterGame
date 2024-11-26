@@ -10,12 +10,7 @@ public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
 	private final Player[] players = new Player[2];
 	private int roundTrackingCounter = 0;
-	private final Generator generator = new Generator();
-	private final Random random = new Random();
-	private final MonsterFactory factory = new MonsterFactory(random);
-	private final Dealing dealing = new Dealing(factory);
-	private final GameScannerManager gameScanner = new GameScannerManager(this);
-	private final TurnHandler turnHandler = new TurnHandler();
+
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
@@ -27,14 +22,15 @@ public class Game {
 
 	private void initializePlayersHands() {
 		for (Player player : players) {
-			dealing.dealCards(player, random);
+			Dealing.dealCards(player);
 			//initialize cardsAlive with all new cards
 			player.updateAliveCards();
 		}
 	}
 
 	public void start() {
-		GameMode mode = gameScanner.handleGameModeOptions();
+		GameMode mode = GameScannerManager.handleGameModeOptions();
+		GameConsole.printGameStart(mode);
 		playGame(mode);
 	}
 
@@ -56,18 +52,18 @@ public class Game {
 
 	private void playRound(Player player1, Player player2, GameMode mode) {
 
+		GameConsole.printRoundStart(roundTrackingCounter);
+
 		switch (mode){
 			case BOT_VS_BOT -> {
-				Monster bot2Monster = generator.generateRoundPick(player2);
-				handleTurnBotVsBot(player1,player2,bot2Monster);
-
+				handleGameBotVsBot(player1,player2);
 			}
 			case PLAYER_VS_BOT -> {
-
+				handleGamePlayerVsBot(player1, player2);
 			}
 		}
 
-
+		GameConsole.printRoundEnd();
 
 			//!terminal info
 			/*GameConsole.printRoundInfo(roundTrackingCounter, player2.getName(), player1.getName(),
@@ -78,35 +74,45 @@ public class Game {
 
 	//no need for attacker player itself be passed since I am passing his selected monster and that is where i will
 	// grab damage to deal from
-	private void handleTurnBotVsBot(Player player1,Player player2, Monster defenseMonster) {
+	private void handleGameBotVsBot(Player player1,Player player2) {
 		if (roundTrackingCounter % 2 == 0) {
-			turnHandler.handleBotTurn(player1,player2,defenseMonster,dealing,generator,roundTrackingCounter);
+			Monster attackerMonster = Generator.generateRoundPick(player1);
+			TurnHandler.handleBotTurnBotVsBot(player1,player2,attackerMonster,roundTrackingCounter);
 			if(player2.hasNoCards()){
 				player2.setHasLost(true);
 			}
 		}else{
-			turnHandler.handleBotTurn(player2,player1,defenseMonster,dealing,generator,roundTrackingCounter);
+			Monster attackerMonster = Generator.generateRoundPick(player2);
+			TurnHandler.handleBotTurnBotVsBot(player2,player1,attackerMonster,roundTrackingCounter);
 			if(player1.hasNoCards()){
 				player1.setHasLost(true);
 			}
 		}
 	}
 
-	private void handleTurnPlayerVsBot(Player player1, Player player2, Monster defenseMonster){
+	private void handleGamePlayerVsBot(Player player1, Player player2){
 		if(roundTrackingCounter % 2 == 0){
-			turnHandler.handlePlayerTurn(player1,player2,gameScanner,dealing);
+
+			player1.setAttacking(true);
+			player2.setAttacking(false);
+
+			TurnHandler.handleBotTurnVsPlayer(player1,player2);
+
 		}else{
-			turnHandler.handleBotTurn(player1,player2,defenseMonster,dealing,generator,roundTrackingCounter);
+			player1.setAttacking(false);
+			player2.setAttacking(true);
+
+			TurnHandler.handleBotTurnVsPlayer(player1,player2);
 		}
 	}
 
-	private void handlePlayerVsPlayer(Player player1, Player player2){
-		if(roundTrackingCounter % 2 == 0){
+/*	private void handlePlayerVsPlayer(Player player1, Player player2){
+		if % 2 == 0){
 			turnHandler.handlePlayerTurn(player1,player2,gameScanner,dealing);
 		}else{
 			turnHandler.handlePlayerTurn(player2,player1,gameScanner,dealing);
 		}
-	}
+	}*/
 
 	private void endGame(Player player1, Player player2) {
 		if (player1.isHasLost()) {
@@ -116,7 +122,7 @@ public class Game {
 		}
 	}
 
-	public Monster getPlayerMonsterChoice(Player player, int userChoice) {
+	public static Monster getPlayerMonsterChoice(Player player, int userChoice) {
 		Monster[] currentAliveCards = player.getCardsAlive();
 		for (Monster currentMonster : currentAliveCards) {
 			if (userChoice == currentMonster.getId()) {

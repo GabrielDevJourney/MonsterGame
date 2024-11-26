@@ -17,7 +17,7 @@ public abstract class Monster {
 		this.currentHealth = type.getCurrentHealth();
 		this.damage = type.getDamage();
 		this.name = type.getName();
-		this.id = idCounter;
+		this.id = idCounter++;
 	}
 
 	//if I need all monsters to have an id this also means that those id must be different with simply incrementing

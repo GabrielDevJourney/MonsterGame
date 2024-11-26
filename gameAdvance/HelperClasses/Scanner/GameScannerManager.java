@@ -10,14 +10,14 @@ import java.util.Scanner;
 
 public class GameScannerManager {
 
-	Scanner gameScanner = new Scanner(System.in);
+	static Scanner gameScanner = new Scanner(System.in);
 	Game game;
 
 	public GameScannerManager(Game game) {
 		this.game = game;
 	}
 
-	public GameMode handleGameModeOptions() {
+	public static GameMode handleGameModeOptions() {
 		int userChoice = 0;
 
 		do {
@@ -37,11 +37,12 @@ public class GameScannerManager {
 
 	}
 
-	public boolean handleDamageDecision() {
+	public static String handleDamageDecision() {
 		int userChoice = 0;
 
 		do {
 
+			System.out.println("Do you want to take damage yourself?");
 			DamageDecision.displayDecisionOptions();
 
 			if (gameScanner.hasNextInt()) {
@@ -49,14 +50,14 @@ public class GameScannerManager {
 				gameScanner.nextLine();
 
 				//check user choice and available ones
-				return DamageDecision.damageDecision(userChoice);
+				return DamageDecision.getDamageDecision(userChoice);
 
 			}
 
 		} while (true);
 	}
 
-	public Monster handleMonsterChoice(Player player) {
+	public static Monster handleMonsterChoice(Player player) {
 		//my scanner needs to grab player alive monsters and display them
 		//but the display must be based on enums
 		//so for each monster alive in monster get enum info
@@ -64,6 +65,7 @@ public class GameScannerManager {
 		int userChoice = 0;
 		do {
 
+			System.out.println("Choose your monster for this round!");
 			player.showAliveMonsters();
 
 			if (gameScanner.hasNextInt()) {
@@ -71,7 +73,7 @@ public class GameScannerManager {
 				gameScanner.nextLine();
 
 				//compare choice with available options
-				return game.getPlayerMonsterChoice(player, userChoice);
+				return Game.getPlayerMonsterChoice(player, userChoice);
 			}
 
 		} while (true);

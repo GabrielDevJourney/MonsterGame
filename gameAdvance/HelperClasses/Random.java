@@ -5,19 +5,19 @@ import gameAdvance.Player;
 
 public class Random {
 
-	public int randomBiteChange() {
+	public static int randomBiteChange() {
 		return (int) (Math.random() * 100 + 1);
 	}
 
-	public int randomIndex(Player player) {
+	public static int randomIndex(Player player) {
 		return (int) (Math.random() * player.getAliveIndexCounter());
 	}
 
-	public int randomDecision(){
+	public static int randomDecision(){
 		return (int)(Math.random() * 10 + 1);
 	}
 
-	public int randomTypeMonstersIndex(){
+	public static int randomTypeMonstersIndex(){
 		return (int)(Math.random() * TypeMonsters.values().length);
 	}
 

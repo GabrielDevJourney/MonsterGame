@@ -35,7 +35,7 @@ public enum DamageDecision {
 	}
 
 	public static void displayDecisionOptions() {
-		System.out.println("Choose a game decision");
+		System.out.println("Choose a game decision - ");
 		for (DamageDecision decision : DamageDecision.values()) {
 			System.out.println(decision.getId() + " " + decision.getDescription());
 		}

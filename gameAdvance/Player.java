@@ -10,6 +10,7 @@ public class Player {
 	private final String name;
 	private boolean hasLost = false;
 	private int health = 100;
+	private boolean isAttacking;
 	private final Monster[] playerCards = new Monster[numberOfInitialCards];
 
 	//this will allow me to not have null index so only alive will be passed and array will always have the needed size
@@ -39,6 +40,10 @@ public class Player {
 		return name;
 	}
 
+	public boolean isAttacking() {
+		return isAttacking;
+	}
+
 	public int getHealth() {
 		return health;
 	}
@@ -49,6 +54,10 @@ public class Player {
 
 	public void setHasLost(boolean hasLost) {
 		this.hasLost = hasLost;
+	}
+
+	public void setAttacking(boolean attacking) {
+		isAttacking = attacking;
 	}
 
 	public void decreaseCardsAlive() {
@@ -73,16 +82,17 @@ public class Player {
 	}
 
 	public void decreaseHealth(int damage){
-		if(health <= 0){
+		if(health - damage <= 0){
+			health = 0;
 			hasLost = true;
 		}else{
-		health -= damage;
+			health -= damage;
 		}
 	}
 
 	public void showAliveMonsters(){
 		for(Monster monsterAlive : cardsAlive){
-			System.out.println(monsterAlive.getId() + monsterAlive.getName() + " has" + monsterAlive.getCurrentHealth() +
+			System.out.println(monsterAlive.getId() + " " + monsterAlive.getName() + " has " + monsterAlive.getCurrentHealth() +
 					" HP");
 		}
 	}
