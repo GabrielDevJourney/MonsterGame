@@ -57,7 +57,7 @@ public class GameScannerManager {
 		} while (true);
 	}
 
-	public static Monster handleMonsterChoice(Player player) {
+	public static int handleMonsterChoice(Player player) {
 		//my scanner needs to grab player alive monsters and display them
 		//but the display must be based on enums
 		//so for each monster alive in monster get enum info
@@ -73,7 +73,11 @@ public class GameScannerManager {
 				gameScanner.nextLine();
 
 				//compare choice with available options
-				return Game.getPlayerMonsterChoice(player, userChoice);
+
+				//? i need return what is selected here and in game handle the l
+				//? logic, this needs to be handle in the turn handler since is called
+				//?every round
+				return userChoice;
 			}
 
 		} while (true);

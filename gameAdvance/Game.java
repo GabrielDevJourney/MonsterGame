@@ -20,17 +20,6 @@ public class Game {
 		initializePlayersHands();
 	}
 
-	public static Monster getPlayerMonsterChoice(Player player, int userChoice) {
-		Monster[] currentAliveCards = player.getCardsAlive();
-		for (Monster currentMonster : currentAliveCards) {
-			if (userChoice == currentMonster.getId()) {
-				return currentMonster;
-			}
-		}
-		throw new IllegalArgumentException("That monster isn't available");
-	}
-
-
 	//*METHODS
 
 	private void initializePlayersHands() {

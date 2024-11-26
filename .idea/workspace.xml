@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="impelemented most of player vs bot logic and currenly improving prints to see game flow to understand if everything is working smothly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Dealing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/DamageDecision.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Enums/DamageDecision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Enums/GameMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Enums/TypeMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Enums/TypeMonsters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/GameConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/MonsterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Mummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Monsters/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Werewolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Random.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Scanner/GameScannerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Scanner/GameScannerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameAdvance/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Scanner/GameScannerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Scanner/GameScannerManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
