@@ -73,6 +73,8 @@ public class Player {
 	}
 
 	public void updateAliveCards() {
+
+		//todo check BASIC VERSION  for correct code implmentation
 		//need to create a new one everytime this runs otherwise will not be able to update
 		cardsAlive = new Monster[numberOfCardsAlive];
 		aliveIndexCounter = 0;

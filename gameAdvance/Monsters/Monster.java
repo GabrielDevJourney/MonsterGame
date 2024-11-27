@@ -2,12 +2,12 @@ package gameAdvance.Monsters;
 
 import gameAdvance.Enums.TypeMonsters;
 import gameAdvance.Player;
+import gameAdvance.Strikeable;
+import gameAdvance.Supernatural;
 
-public abstract class Monster {
-	protected final String name;
+public abstract class Monster extends Supernatural implements Strikeable {
 	protected int currentHealth;
 	protected TypeMonsters type;
-	protected final int damage;
 	protected boolean isDead;
 	protected final int id;
 	protected static int idCounter = 0;
@@ -24,19 +24,12 @@ public abstract class Monster {
 	// so all will share id this means the current monster id will be last one set ++ this should be incremented in
 	// monster, but I can do something like in each monster type this.id = id++
 
-	//*GETTERS AND SETTERS
-
-	public String getName() {
-		return name;
-	}
+	//*GETTERS AND SETTERS,
 
 	public int getCurrentHealth() {
 		return currentHealth;
 	}
 
-	public int getDamage() {
-		return damage;
-	}
 
 	public int getId() {
 		return id;
@@ -47,12 +40,12 @@ public abstract class Monster {
 	}
 
 	//check for zero health this means mosnter is dead
-	public void setHealth(int healthAfterHit) {
-		if (healthAfterHit < 0) {
+	public void updateCurrentHealth(int damage) {
+		if (damage <= 0) {
 			currentHealth = 0;
 			isDead = true;
 		} else {
-			currentHealth = healthAfterHit;
+			currentHealth -= damage;
 		}
 	}
 
@@ -61,13 +54,21 @@ public abstract class Monster {
 	public abstract void specialAbility();
 
 	//using This is referring to the monster that already called method on itself
-	public void sufferHit(int damageOfHit, Player currentPlayer) {
-		int healthAfterHit = currentHealth - damageOfHit;
-		this.setHealth(healthAfterHit);
+	public void sufferHit(int damage, Player currentPlayer) {
+		this.updateCurrentHealth(damage);
+
+		//todo get this out of here and implement in the updateCardState in player
 		if (this.isDead) {
 			currentPlayer.decreaseCardsAlive();
 			currentPlayer.updateAliveCards();
 		}
+
+
 	}
 
+	@Override
+	public void attack(Monster defenseMonster) {
+		this.specialAbility();
+		defenseMonster.sufferHit(this.getDamage());
+	}
 }

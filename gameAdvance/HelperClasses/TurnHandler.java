@@ -9,13 +9,6 @@ public class TurnHandler {
 
 
 	public void handlePlayerVsPlayerTurn(Player attacker, Player defense) {
-		//logic to get decision of taking damage from a player
-		//get attacker choice
-		//show
-
-		//get defense choice to take hit or let monster take it
-		//if yes simply hit player health
-		//no then get defense monster choice and deal damage to it
 
 		Monster attackerMonster = getUserMonsterChoice(attacker);
 		System.out.println(attacker.getName() + " choose " + attackerMonster.getName());
@@ -27,7 +20,7 @@ public class TurnHandler {
 			System.out.println(defense.getName() + " was hit and now has HP: " + defense.getHealth());
 		}else{
 			Monster defenseMonster = getUserMonsterChoice(defense);
-			defenseMonster.setHealth(attackerMonster.getDamage());
+			defenseMonster.updateCurrentHealth(attackerMonster.getDamage());
 			System.out.println(defenseMonster.getName() + " was hit remaing HP: " + defenseMonster.getCurrentHealth());
 		}
 
@@ -101,6 +94,10 @@ public class TurnHandler {
 		}
 
 	}
+
+	//todo handleTurnWithObstacle need to have the obstacle and both players and monsters
+		//todo call the attack created in supernatural since it can handle both types of obstacles
+		//todo update both player cards state because one of them can have a mosnter die in round
 
 	//*DEAL DAMAGE LOGIC
 	private void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense, boolean randomDecision) {

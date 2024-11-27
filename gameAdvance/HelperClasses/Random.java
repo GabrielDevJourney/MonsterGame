@@ -5,6 +5,8 @@ import gameAdvance.Player;
 
 public class Random {
 
+	//todo create more generic random based on ranges, also use this for randomobstacle in game for the change of
+	// either like 70/30 or something
 	public static int randomBiteChange() {
 		return (int) (Math.random() * 100 + 1);
 	}

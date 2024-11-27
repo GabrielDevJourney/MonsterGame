@@ -4,6 +4,8 @@ import gameAdvance.HelperClasses.*;
 import gameAdvance.Enums.GameMode;
 import gameAdvance.Monsters.Monster;
 import gameAdvance.Monsters.MonsterFactory;
+import gameAdvance.Obstacles.Fairy;
+import gameAdvance.Obstacles.Witch;
 import gameAdvance.Scanner.GameScannerManager;
 
 public class Game {
@@ -12,11 +14,14 @@ public class Game {
 	private int roundTrackingCounter = 0;
 	private final TurnHandler turnHandler = new TurnHandler();
 	private GameMode mode;
+	private final Supernatural[] obstacles = new Supernatural[2];
 
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
 		this.players[1] = new Player("Player 2");
+		this.obstacles[0] = new Fairy();
+		this.obstacles[1] = new Witch();
 		initializePlayersHands();
 	}
 
