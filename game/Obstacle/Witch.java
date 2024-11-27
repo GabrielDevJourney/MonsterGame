@@ -1,4 +1,4 @@
-package game.Obstacule;
+package game.Obstacle;
 
 import game.HelperFunctions.GameConsole;
 import game.Monsters.Monster;
@@ -6,12 +6,13 @@ import game.Player;
 import game.Strikeable;
 import game.Supernatural;
 
-public class Whitch extends Supernatural implements Strikeable {
+public class Witch extends Supernatural implements Strikeable {
+
 	protected int health;
 	protected boolean isDead;
 
-	public Whitch() {
-		this.name = "Whitch";
+	public Witch() {
+		this.name = "Witch";
 		this.damage = 40;
 		this.health = 150;
 	}
@@ -23,13 +24,16 @@ public class Whitch extends Supernatural implements Strikeable {
 	public void attack(int round, Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster) {
 
 		if (isDead()) {
+
 			System.out.println(getName() + " is dead so will not attack anymore!!");
+
 		} else {
 
 			//print health before hit also
 			GameConsole.printForObstacleRound(round, this.getName(), attackerMonster.getName(),
 					defenseMonster.getName(), attackerMonster.getHealth(),
 					defenseMonster.getHealth());
+
 
 			attackerMonster.sufferHit(this.getDamage());
 			defenseMonster.sufferHit(this.getDamage());
@@ -40,7 +44,9 @@ public class Whitch extends Supernatural implements Strikeable {
 					attackerMonster.getHealth(),
 					defenseMonster.getHealth());
 
+
 			this.sufferHit(attackerMonster.getDamage() + defenseMonster.getDamage());
+
 
 			System.out.println(this.getName() + " health after hit HP: " + this.health);
 		}

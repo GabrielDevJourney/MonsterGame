@@ -12,8 +12,8 @@ public class Random {
 		return (int) (Math.random() * player.getAliveIndexCounter());
 	}
 
-	//are there obstacules true 1 or false 2
-	public static boolean generateExistenceOfObstacule() {
+	//are there Obstacles true 1 or false 2
+	public static boolean generateExistenceOfObstacle() {
 		return generateRandomNumber(10)  <= 4;
 	}
 

@@ -47,6 +47,5 @@ public abstract class Monster extends Supernatural implements Strikeable {
 	public void attack(Monster defenseMonster) {
 		this.specialAbility();
 		defenseMonster.sufferHit(this.getDamage());
-
 	}
 }

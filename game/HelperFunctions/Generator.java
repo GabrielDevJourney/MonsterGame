@@ -1,14 +1,14 @@
 package game.HelperFunctions;
 
-import game.Enums.ObstaculeType;
+import game.Enums.ObstacleType;
 import game.Enums.TypeMonsters;
 import game.Game;
 import game.Monsters.Monster;
 import game.Monsters.Mummy;
 import game.Monsters.Vampire;
 import game.Monsters.Werewolf;
-import game.Obstacule.Fairy;
-import game.Obstacule.Whitch;
+import game.Obstacle.Fairy;
+import game.Obstacle.Witch;
 import game.Player;
 import game.Supernatural;
 
@@ -43,17 +43,20 @@ public class Generator {
 
 	}
 
-	public static Supernatural generateRandomObstacule() {
-		//if there are 30% for fairy and 70% for whitch
+	public static Supernatural generateRandomObstacle() {
+		//if there are 30% for fairy and 70% for Witch
 		int change = Random.generateRandomNumber(100);
-		if (Random.generateExistenceOfObstacule()) {
-			ObstaculeType type = change <= 30 ? ObstaculeType.FAIRY : ObstaculeType.WHITCH;
+
+		if (Random.generateExistenceOfObstacle()) {
+
+			ObstacleType type = change <= 30 ? ObstacleType.FAIRY : ObstacleType.Witch;
+
 			switch (type) {
 				case FAIRY -> {
 					return Game.obstacles[0];
 				}
-				case WHITCH -> {
-					if(!((Whitch)Game.obstacles[1]).isDead()){
+				case Witch -> {
+					if(!((Witch)Game.obstacles[1]).isDead()){
 						return Game.obstacles[1];
 					}
 					else{

@@ -3,8 +3,8 @@ package game;
 import game.HelperFunctions.GameConsole;
 import game.HelperFunctions.Generator;
 import game.Monsters.Monster;
-import game.Obstacule.Fairy;
-import game.Obstacule.Whitch;
+import game.Obstacle.Fairy;
+import game.Obstacle.Witch;
 
 public class Game {
 	//trying to use last class subject since players will always be 2 why not set it
@@ -16,7 +16,7 @@ public class Game {
 		this.players[0] = new Player("Player 1");
 		this.players[1] = new Player("Player 2");
 		obstacles[0] = new Fairy();
-		obstacles[1] = new Whitch();
+		obstacles[1] = new Witch();
 		initializePlayersHands();
 	}
 
@@ -56,10 +56,10 @@ public class Game {
 
 
 		roundTrackingCounter++;
-		Supernatural obstacleForThisRound = Generator.generateRandomObstacule();
+		Supernatural obstacleForThisRound = Generator.generateRandomObstacle();
 
 		if (obstacleForThisRound != null) {
-			handleTurnWithObstacule(obstacleForThisRound, player1, player2, monsterPlayer1, monsterPlayer2);
+			handleTurnWithObstacle(obstacleForThisRound, player1, player2, monsterPlayer1, monsterPlayer2);
 		} else {
 			if (roundTrackingCounter % 2 == 0) {
 
@@ -95,11 +95,11 @@ public class Game {
 
 }
 
-	private void handleTurnWithObstacule(Supernatural obstacule, Player attacker, Player defense,
+	private void handleTurnWithObstacle(Supernatural Obstacle, Player attacker, Player defense,
                                      Monster attackerMonster,
                                      Monster defenseMonster) {
 
-	obstacule.attack(roundTrackingCounter, attacker, defense, attackerMonster, defenseMonster);
+	Obstacle.attack(roundTrackingCounter, attacker, defense, attackerMonster, defenseMonster);
 
 	attacker.updatePlayerCardsState(attackerMonster);
 	defense.updatePlayerCardsState(defenseMonster);

@@ -3,6 +3,7 @@ package game;
 import game.Monsters.Monster;
 
 public class Supernatural {
+
 	protected String name;
 	protected int damage;
 
@@ -14,7 +15,7 @@ public class Supernatural {
 		return damage;
 	}
 
-	//for both fairy and whitch since they can attack both cards
+	//for both fairy and Witch since they can attack both cards
 	public void attack(int round, Player attacker, Player defense,Monster attackerMonster, Monster defenseMonster){
 
 	}
