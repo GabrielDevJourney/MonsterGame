@@ -12,9 +12,6 @@ public class Fairy extends Supernatural {
 		this.name = "Fairy";
 	}
 
-	//todo check implementation is basic and see what need to be add has the game console method
-
-
 	@Override
 	public void attack(Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster) {
 
