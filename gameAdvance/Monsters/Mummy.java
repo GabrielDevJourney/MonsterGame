@@ -38,4 +38,10 @@ public class Mummy extends Monster {
 		int penaltyDamage = 10;
 		currentHealth -= penaltyDamage;
 	}
+
+	@Override
+	public void sufferHit(int damage) {
+		super.sufferHit(damage);
+
+	}
 }

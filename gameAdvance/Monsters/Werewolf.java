@@ -13,4 +13,9 @@ public class Werewolf extends Monster {
 		super(TypeMonsters.WEREWOLF);
 	}
 
+	@Override
+	public void sufferHit(int damage) {
+		super.sufferHit(damage);
+
+	}
 }

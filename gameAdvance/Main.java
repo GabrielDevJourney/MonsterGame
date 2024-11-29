@@ -16,3 +16,5 @@ public class Main {
 // null instead use exceptions see the BASIC VERSION
 	//! check if thre is any need to imoelemnt round even and odd inside the method itself or does how it is works
 	//! might work because the only change if there is obtacle then coll the handler of that
+
+//TODO TEST CURRENT IMPLMENTATION OF SUFFER HIT AND SEE IF THRE ARE 1STILLL BUGS

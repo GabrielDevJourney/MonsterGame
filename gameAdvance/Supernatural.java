@@ -2,7 +2,7 @@ package gameAdvance;
 
 import gameAdvance.Monsters.Monster;
 
-public class Supernatural {
+public abstract class Supernatural {
 	protected  int damage;
 	protected  String name;
 
@@ -14,11 +14,11 @@ public class Supernatural {
 		return name;
 	}
 
-	public void attack(int round, Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster){
+	public void attack(Monster defenseMonster){
 
 	}
 
-	public void attack(Monster defenseMonster){
+	public void attack(Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster){
 
 	}
 }

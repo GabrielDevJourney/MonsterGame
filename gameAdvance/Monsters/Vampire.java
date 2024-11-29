@@ -25,4 +25,9 @@ public class Vampire extends Monster {
 		}
 	}
 
+	@Override
+	public void sufferHit(int damage) {
+		super.sufferHit(damage);
+
+	}
 }

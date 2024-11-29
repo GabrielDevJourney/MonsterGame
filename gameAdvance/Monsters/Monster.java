@@ -40,31 +40,19 @@ public abstract class Monster extends Supernatural implements Strikeable {
 	}
 
 	//check for zero health this means mosnter is dead
-	public void updateCurrentHealth(int damage) {
-		if (damage <= 0) {
-			currentHealth = 0;
-			isDead = true;
+	public void sufferHit(int damage) {
+
+		if (this.currentHealth - damage <= 0) {
+			this.currentHealth = 0;
+			this.isDead = true;
 		} else {
-			currentHealth -= damage;
+			this.currentHealth -= damage;
 		}
 	}
 
 	//*METHODS
 
 	public abstract void specialAbility();
-
-	//using This is referring to the monster that already called method on itself
-	public void sufferHit(int damage, Player currentPlayer) {
-		this.updateCurrentHealth(damage);
-
-		//todo get this out of here and implement in the updateCardState in player
-		if (this.isDead) {
-			currentPlayer.decreaseCardsAlive();
-			currentPlayer.updateAliveCards();
-		}
-
-
-	}
 
 	@Override
 	public void attack(Monster defenseMonster) {

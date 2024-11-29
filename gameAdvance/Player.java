@@ -73,16 +73,36 @@ public class Player {
 	}
 
 	public void updateAliveCards() {
-
-		//todo check BASIC VERSION  for correct code implmentation
 		//need to create a new one everytime this runs otherwise will not be able to update
-		cardsAlive = new Monster[numberOfCardsAlive];
 		aliveIndexCounter = 0;
+		numberOfCardsAlive = 0;
 
+		//count how many are alive
 		for (Monster playerCard : playerCards) {
 			if (!playerCard.isDead()) {
-				cardsAlive[aliveIndexCounter] = playerCard;
-				aliveIndexCounter++;
+				//need to ensure numberofcardalive being passed has size of array is actually correct
+				numberOfCardsAlive++;
+			}
+		}
+
+		//here i can create array with correct size
+		cardsAlive = new Monster[numberOfCardsAlive];
+
+		// Fill array with alive
+		for (Monster playerCard : playerCards) {
+			if (!playerCard.isDead()) {
+				cardsAlive[aliveIndexCounter++] = playerCard;
+			}
+		}
+
+	}
+
+	public void updatePlayerCardsState(Monster currentMonster){
+		if(currentMonster.isDead()){
+			this.decreaseCardsAlive();
+			this.updateAliveCards();
+			if(this.hasNoCards()){
+				this.setHasLost(true);
 			}
 		}
 	}
@@ -102,4 +122,6 @@ public class Player {
 					" HP");
 		}
 	}
+
+
 }

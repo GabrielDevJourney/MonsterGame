@@ -1,5 +1,6 @@
 package gameAdvance.Obstacles;
 
+import gameAdvance.HelperClasses.GameConsole;
 import gameAdvance.Monsters.Monster;
 import gameAdvance.Player;
 import gameAdvance.Supernatural;
@@ -15,14 +16,11 @@ public class Fairy extends Supernatural {
 
 
 	@Override
-	public void attack(int round, Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster) {
-
-		//todo print initial health and name printForObstacleRound
+	public void attack(Player attacker, Player defense, Monster attackerMonster, Monster defenseMonster) {
 
 		attackerMonster.sufferHit(this.getDamage());
 		defenseMonster.sufferHit(this.getDamage());
 
-		//todo print final info after damage has been done
 	}
 }
 

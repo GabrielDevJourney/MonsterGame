@@ -14,15 +14,19 @@ public class Game {
 	private int roundTrackingCounter = 0;
 	private final TurnHandler turnHandler = new TurnHandler();
 	private GameMode mode;
-	private final Supernatural[] obstacles = new Supernatural[2];
+	private static final Supernatural[] obstacles = new Supernatural[2];
 
 
 	public Game() {
 		this.players[0] = new Player("Player 1");
 		this.players[1] = new Player("Player 2");
-		this.obstacles[0] = new Fairy();
-		this.obstacles[1] = new Witch();
+		obstacles[0] = new Fairy();
+		obstacles[1] = new Witch();
 		initializePlayersHands();
+	}
+
+	public static Supernatural[] getObstacles() {
+		return obstacles;
 	}
 
 	//*METHODS
@@ -74,21 +78,21 @@ public class Game {
 
 		GameConsole.printRoundStart(roundTrackingCounter);
 
-		switch (mode){
+		switch (mode) {
 			case BOT_VS_BOT -> {
-				handleGameBotVsBot(player1,player2);
+				handleGameBotVsBot(player1, player2);
 			}
 			case PLAYER_VS_BOT -> {
 				handleGamePlayerVsBot(player1, player2);
 			}
 			case PLAYER_VS_PLAYER -> {
-				handleGamePlayerVsPlayer(player1,player2);
+				handleGamePlayerVsPlayer(player1, player2);
 			}
 		}
 
 		GameConsole.printRoundEnd();
 
-			//!terminal info
+		//!terminal info
 			/*GameConsole.printRoundInfo(roundTrackingCounter, player2.getName(), player1.getName(),
 					monsterPlayer2.getName(), monsterPlayer1.getName(),
 					monsterPlayer2.getCurrentHealth(), monsterPlayer1.getCurrentHealth());*/
@@ -97,65 +101,70 @@ public class Game {
 
 	//no need for attacker player itself be passed since I am passing his selected monster and that is where i will
 	// grab damage to deal from
-	private void handleGameBotVsBot(Player player1,Player player2) {
-		if (roundTrackingCounter % 2 == 0) {
+	private void handleGameBotVsBot(Player player1, Player player2) {
+		Supernatural obstacle = roundObstacle();
 
-			Monster attackerMonster = Generator.generateRoundPick(player1);
+		if (obstacle != null && roundTrackingCounter % 2 == 0) {
 
-			turnHandler.handleBotTurnBotVsBot(player1,player2,attackerMonster,roundTrackingCounter);
+			turnHandler.handleTurnWithObstacleBotVsBot(obstacle,player1,player2);
 
-			if(player2.hasNoCards()){
-				player2.setHasLost(true);
-			}
-		}else{
+		} else{
+			if (roundTrackingCounter % 2 == 0) {
 
-			Monster attackerMonster = Generator.generateRoundPick(player2);
+				turnHandler.handleBotTurnBotVsBot(player1, player2);
 
-			turnHandler.handleBotTurnBotVsBot(player2,player1,attackerMonster,roundTrackingCounter);
+			} else {
 
-			if(player1.hasNoCards()){
-				player1.setHasLost(true);
+				turnHandler.handleBotTurnBotVsBot(player2, player1);
 			}
 		}
 	}
 
-	private void handleGamePlayerVsBot(Player player1, Player player2){
+	private void handleGamePlayerVsBot(Player player1, Player player2) {
 
 		player1.setName("USER");
 		player2.setName("BOT");
 
-		if(roundTrackingCounter % 2 == 0){
+		if (roundTrackingCounter % 2 == 0) {
 
 			player1.setAttacking(true);
 			player2.setAttacking(false);
 
-			turnHandler.handleBotVsPlayerTurn(player1,player2);
+			turnHandler.handleBotVsPlayerTurn(player1, player2);
 
-		}else{
+		} else {
 			player1.setAttacking(false);
 			player2.setAttacking(true);
 
-			turnHandler.handleBotVsPlayerTurn(player1,player2);
+			turnHandler.handleBotVsPlayerTurn(player1, player2);
 		}
 	}
 
-	private void handleGamePlayerVsPlayer(Player attacker, Player defense){
+	private void handleGamePlayerVsPlayer(Player attacker, Player defense) {
+
+		Supernatural obstacle = roundObstacle();
 
 		attacker.setName("USER_Gabriel");
 		defense.setName("USER_Test");
 
-		if(roundTrackingCounter % 2 == 0){
+		if (obstacle != null) {
+			System.out.println("Obstacle for this round is " + obstacle.getName());
+			turnHandler.handleTurnWithObstaclePlayerVsPlayer(obstacle, attacker, defense);
+		} else {
+			System.out.println("No obstacle playing!");
+			if (roundTrackingCounter % 2 == 0) {
 
-			attacker.setAttacking(true);
-			defense.setAttacking(false);
+				attacker.setAttacking(true);
+				defense.setAttacking(false);
 
-			turnHandler.handlePlayerVsPlayerTurn(attacker,defense);
+				turnHandler.handlePlayerVsPlayerTurn(attacker, defense);
 
-		}else{
-			attacker.setAttacking(false);
-			defense.setAttacking(true);
+			} else {
+				attacker.setAttacking(false);
+				defense.setAttacking(true);
 
-			turnHandler.handlePlayerVsPlayerTurn(defense,attacker);
+				turnHandler.handlePlayerVsPlayerTurn(defense, attacker);
+			}
 		}
 	}
 
@@ -165,5 +174,9 @@ public class Game {
 		} else {
 			GameConsole.announceWinner(player1.getName(), player2.getName());
 		}
+	}
+
+	private Supernatural roundObstacle() {
+		return Generator.generateRandomObstacle();
 	}
 }

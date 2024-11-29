@@ -4,6 +4,7 @@ import gameAdvance.Enums.DamageDecision;
 import gameAdvance.Monsters.Monster;
 import gameAdvance.Scanner.GameScannerManager;
 import gameAdvance.Player;
+import gameAdvance.Supernatural;
 
 public class TurnHandler {
 
@@ -15,27 +16,26 @@ public class TurnHandler {
 
 		boolean defenseDecision = DamageDecision.finalDamageDecision(GameScannerManager.handleDamageDecision(defense.getName()));
 
-		if(defenseDecision){
+		if (defenseDecision) {
 			defense.decreaseHealth(attackerMonster.getDamage());
 			System.out.println(defense.getName() + " was hit and now has HP: " + defense.getHealth());
-		}else{
+		} else {
 			Monster defenseMonster = getUserMonsterChoice(defense);
-			defenseMonster.updateCurrentHealth(attackerMonster.getDamage());
+			defenseMonster.sufferHit(attackerMonster.getDamage());
 			System.out.println(defenseMonster.getName() + " was hit remaing HP: " + defenseMonster.getCurrentHealth());
 		}
 
 
 	}
 
-	public void handleBotTurnBotVsBot(Player attacker, Player defense, Monster attackerMonsterChoice,
-	                                  int roundTrackingCounter) {
+	public void handleBotTurnBotVsBot(Player attacker, Player defense) {
 
-
+		Monster attackerMonsterChoice = Generator.generateRoundPick(attacker);
 		Monster defenseMonsterChoice = Generator.generateRoundPick(defense);
 		boolean damageDecision = Generator.generateDecisionToTakeDamage();
 
 
-		GameConsole.printRoundInfo(roundTrackingCounter, attacker.getName(), defense.getName(),
+		GameConsole.printRoundInfo(attacker.getName(), defense.getName(),
 				attackerMonsterChoice.getName(), defenseMonsterChoice.getName(),
 				attackerMonsterChoice.getCurrentHealth(), defenseMonsterChoice.getCurrentHealth());
 
@@ -43,6 +43,11 @@ public class TurnHandler {
 			dealDamage(attackerMonsterChoice, null, defense, true);
 		} else {
 			dealDamage(attackerMonsterChoice, defenseMonsterChoice, defense, false);
+		}
+
+
+		if(defense.hasNoCards()){
+			defense.setHasLost(true);
 		}
 
 	}
@@ -95,27 +100,61 @@ public class TurnHandler {
 
 	}
 
-	//todo handleTurnWithObstacle need to have the obstacle and both players and monsters
-		//todo call the attack created in supernatural since it can handle both types of obstacles
-		//todo update both player cards state because one of them can have a mosnter die in round
+	//todo need one that only ask for player1 when is botvsplayer
+
+	//this one handles when exist 2 players
+	public void handleTurnWithObstaclePlayerVsPlayer(Supernatural obstacle, Player attacker,
+	                                   Player defense
+	) {
+
+		Monster attackerMonster = getUserMonsterChoice(attacker);
+		Monster defenseMonster = getUserMonsterChoice(defense);
+
+		GameConsole.printForObstacleRound(obstacle.getName(), attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+		obstacle.attack(attacker, defense, attackerMonster, defenseMonster);
+
+
+		attacker.updatePlayerCardsState(attackerMonster);
+		defense.updatePlayerCardsState(defenseMonster);
+
+		GameConsole.printAfterDamageObstacleRound(attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+	}
+
+	public void handleTurnWithObstacleBotVsBot(Supernatural obstacle, Player attacker, Player defense){
+		Monster attackerMonster = Generator.generateRoundPick(attacker);
+		Monster defenseMonster = Generator.generateRoundPick(defense);
+
+		GameConsole.printForObstacleRound(obstacle.getName(), attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+		obstacle.attack(attacker,defense,attackerMonster,defenseMonster);
+
+		GameConsole.printAfterDamageObstacleRound(attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+	}
 
 	//*DEAL DAMAGE LOGIC
 	private void dealDamage(Monster attackerMonster, Monster defenseMonster, Player defense, boolean randomDecision) {
 
 		if (randomDecision) {
-			int healthBeforeHit = defense.getHealth();
 
 			//if true player take damage else take monster damage
 			defense.decreaseHealth(attackerMonster.getDamage());
 
-			GameConsole.displayPlayerHealthWhenHit(defense.getName(), healthBeforeHit);
+
+			GameConsole.displayPlayerHealthWhenHit(defense.getName(), defense.getHealth());
 
 		} else {
 
 			System.out.println(defense.getName() + " choose to let monster take the hit");
 
 			attackerMonster.specialAbility();
-			defenseMonster.sufferHit(attackerMonster.getDamage(), defense);
+			defenseMonster.sufferHit(attackerMonster.getDamage());
 
 			//!terminal
 			GameConsole.printDamageInfo(attackerMonster.getDamage(),
@@ -126,7 +165,6 @@ public class TurnHandler {
 	}
 
 
-	
 	//*METHODS FOR FIND AND RETURN ACTUAL USER MONSTER CHOICE
 
 	private Monster findMonsterById(Player player, int userChoice) {
@@ -141,6 +179,8 @@ public class TurnHandler {
 
 	private Monster getUserMonsterChoice(Player player) {
 		int userChoice = GameScannerManager.handleMonsterChoice(player);
-		return findMonsterById(player,userChoice);
+		return findMonsterById(player, userChoice);
 	}
+
+
 }
