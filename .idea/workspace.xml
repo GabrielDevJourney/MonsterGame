@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gameAdvance/Enums/ObstacleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_11_2024,_10_42_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_11_2024__10_42__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Enums/TypeMonsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Enums/TypeMonsters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/GameConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/GameConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/Random.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/MonsterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Mummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Monsters/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Monsters/Werewolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Obstacles/Fairy.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Obstacles/Fairy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Obstacles/Witch.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Obstacles/Witch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameAdvance/Supernatural.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Supernatural.java" afterDir="false" />
-    </list>
+    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="delete of comments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +123,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732806118649</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implementation of obstacles rounds for both playervsplayer and botvsbot, fix a issue with suffer hit doing the wrong override implementation">
+      <option name="closed" value="true" />
+      <created>1732872221621</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732872221621</updated>
+    </task>
+    <task id="LOCAL-00007" summary="delete of comments">
+      <option name="closed" value="true" />
+      <created>1732872354897</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732872354897</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +197,8 @@
     <MESSAGE value="impelemented most of player vs bot logic and currenly improving prints to see game flow to understand if everything is working smothly" />
     <MESSAGE value="delete dependency between game and gamesacnner where gamescanner need gae method to return monster, i delegate this to turn handler so no dependency anynmore now turn hadler can simply get user choice from scanner and since already has the player object can also check in its array of alive mosnters what the choice correspond to" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="implementation of obstacles rounds for both playervsplayer and botvsbot, fix a issue with suffer hit doing the wrong override implementation" />
+    <MESSAGE value="delete of comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete of comments" />
   </component>
 </project>
