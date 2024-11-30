@@ -106,9 +106,9 @@ public class Game {
 
 		if (obstacle != null && roundTrackingCounter % 2 == 0) {
 
-			turnHandler.handleTurnWithObstacleBotVsBot(obstacle,player1,player2);
+			turnHandler.handleTurnWithObstacleBotVsBot(obstacle, player1, player2);
 
-		} else{
+		} else {
 			if (roundTrackingCounter % 2 == 0) {
 
 				turnHandler.handleBotTurnBotVsBot(player1, player2);
@@ -122,21 +122,31 @@ public class Game {
 
 	private void handleGamePlayerVsBot(Player player1, Player player2) {
 
+		Supernatural obstacle = roundObstacle();
+
 		player1.setName("USER");
 		player2.setName("BOT");
 
-		if (roundTrackingCounter % 2 == 0) {
-
-			player1.setAttacking(true);
-			player2.setAttacking(false);
-
-			turnHandler.handleBotVsPlayerTurn(player1, player2);
-
+		if (obstacle != null) {
+			System.out.println("Obstacle for this round is " + obstacle.getName());
+			turnHandler.handleTurnWithObstaclePlayervsBot(obstacle,player1,player2);
 		} else {
-			player1.setAttacking(false);
-			player2.setAttacking(true);
 
-			turnHandler.handleBotVsPlayerTurn(player1, player2);
+			if (roundTrackingCounter % 2 == 0) {
+
+				System.out.println("No obstacle playing!");
+
+				player1.setAttacking(true);
+				player2.setAttacking(false);
+
+				turnHandler.handleBotVsPlayerTurn(player1, player2);
+
+			} else {
+				player1.setAttacking(false);
+				player2.setAttacking(true);
+
+				turnHandler.handleBotVsPlayerTurn(player1, player2);
+			}
 		}
 	}
 

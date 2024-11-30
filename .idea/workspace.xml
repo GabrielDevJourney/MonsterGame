@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="delete of comments" />
+    <list default="true" id="89f31b18-aeb1-4e68-aa42-64365b8175da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameAdvance/HelperClasses/TurnHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

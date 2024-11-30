@@ -100,7 +100,27 @@ public class TurnHandler {
 
 	}
 
-	//todo need one that only ask for player1 when is botvsplayer
+
+	public void handleTurnWithObstaclePlayervsBot(Supernatural obstacle, Player attacker,
+	                                              Player defense){
+
+		Monster attackerMonster = getUserMonsterChoice(attacker);
+		Monster defenseMonster = Generator.generateRoundPick(defense);
+
+		GameConsole.printForObstacleRound(obstacle.getName(), attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+		obstacle.attack(attacker,defense,attackerMonster,defenseMonster);
+
+
+		attacker.updatePlayerCardsState(attackerMonster);
+		defense.updatePlayerCardsState(defenseMonster);
+
+		GameConsole.printAfterDamageObstacleRound(attackerMonster.getName(), defenseMonster.getName(),
+				attackerMonster.getCurrentHealth(), defenseMonster.getCurrentHealth());
+
+
+	}
 
 	//this one handles when exist 2 players
 	public void handleTurnWithObstaclePlayerVsPlayer(Supernatural obstacle, Player attacker,
